@@ -1,6 +1,6 @@
 # FiveTagsMobileApp
 
-This is our mobile app group project for mobile application development module on first year(NSBM Green University).
+This is our mobile app group project for Mobile Application Development module on first year (NSBM Green University).
 Badge - 20.1 BSc(Honours)in Software Engineering (NSBM-PLY) <br><br>
 Group Members <br>
 <ul>
