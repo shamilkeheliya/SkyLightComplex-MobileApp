@@ -1,0 +1,9 @@
+<div class="log-form">
+    <h2>Admin Login</h2>
+    <div [formGroup]= "loginForm" class="center" action="#"> 
+     <input type="text" title="username" placeholder="username" formControlName="email" style="margin-left: 30px; margin-top: 20px;"/>
+      <input type="password" title="username" placeholder="password" formControlName="pwd" style="margin-left: 30px;"/>
+      <button type="button" (click)="singin()"class="btn" style="margin-left: 30px;margin-bottom: 20px;">Login</button>
+    </div>
+</div>
+

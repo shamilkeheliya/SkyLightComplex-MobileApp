@@ -1,0 +1,14 @@
+.toolbar{
+    background-color: rgb(66, 162, 218);
+    height: 50px;
+    width: 100%;
+}
+.title{
+    color: white;
+    margin-left: 20px;
+    padding-top: 8px;
+    font-size: 30px;
+}
+.inner{
+    margin-top: 10px;
+}

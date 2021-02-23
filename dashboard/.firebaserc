@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mobileapp-b9de2": {
+      "hosting": {
+        "dashboard": [
+          "mobileapp-b9de2"
+        ]
+      }
+    }
+  }
+}
