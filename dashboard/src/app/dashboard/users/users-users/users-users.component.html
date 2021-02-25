@@ -1,1 +1,10 @@
-<p>users-users works!</p>
+<div *ngIf="users?.length > 0; else noUsers">
+    <ul *ngFor="let user of users" class="collection" id="no-bullets">
+        <li class="collection-user">{{user.uid}} {{user.lastName}}</li>
+    </ul>
+</div>
+
+<ng-template #noUsers>
+    <hr>
+    <h5>There are no Users</h5>
+</ng-template>

@@ -1,3 +1,4 @@
+import { UserService } from './services/user.service';
 import { environment } from './../environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,6 +26,25 @@ import { LaborsLaborsComponent } from './dashboard/labors/labors-labors/labors-l
 import { LaborsAddlaborComponent } from './dashboard/labors/labors-addlabor/labors-addlabor.component';
 import { LaborsHiringComponent } from './dashboard/labors/labors-hiring/labors-hiring.component';
 import { LaborsReportsComponent } from './dashboard/labors/labors-reports/labors-reports.component';
+import { BookingsComponent } from './dashboard/bookings/bookings/bookings.component';
+import { BookingsNewComponent } from './dashboard/bookings/bookings-new/bookings-new.component';
+import { BookingsAcceptedComponent } from './dashboard/bookings/bookings-accepted/bookings-accepted.component';
+import { BookingsDeclinedComponent } from './dashboard/bookings/bookings-declined/bookings-declined.component';
+import { RequestsComponent } from './dashboard/requests/requests/requests.component';
+import { RequestsNewComponent } from './dashboard/requests/requests-new/requests-new.component';
+import { RequestsReadComponent } from './dashboard/requests/requests-read/requests-read.component';
+import { RequestsCompletedComponent } from './dashboard/requests/requests-completed/requests-completed.component';
+import { ComplainsComponent } from './dashboard/complains/complains/complains.component';
+import { ComplainsNewComponent } from './dashboard/complains/complains-new/complains-new.component';
+import { ComplainsReadComponent } from './dashboard/complains/complains-read/complains-read.component';
+import { NotificationsComponent } from './dashboard/notifications/notifications/notifications.component';
+import { NotificationsFixedComponent } from './dashboard/notifications/notifications-fixed/notifications-fixed.component';
+import { NotificationsMessageComponent } from './dashboard/notifications/notifications-message/notifications-message.component';
+import { ContactusComponent } from './dashboard/contactus/contactus/contactus.component';
+import { ContactusNewComponent } from './dashboard/contactus/contactus-new/contactus-new.component';
+import { ContactusReadComponent } from './dashboard/contactus/contactus-read/contactus-read.component';
+import { ContactusNumbersComponent } from './dashboard/contactus/contactus-numbers/contactus-numbers.component';
+
 
 
 @NgModule({
@@ -43,7 +63,25 @@ import { LaborsReportsComponent } from './dashboard/labors/labors-reports/labors
     LaborsLaborsComponent,
     LaborsAddlaborComponent,
     LaborsHiringComponent,
-    LaborsReportsComponent
+    LaborsReportsComponent,
+    BookingsComponent,
+    BookingsNewComponent,
+    BookingsAcceptedComponent,
+    BookingsDeclinedComponent,
+    RequestsComponent,
+    RequestsNewComponent,
+    RequestsReadComponent,
+    RequestsCompletedComponent,
+    ComplainsComponent,
+    ComplainsNewComponent,
+    ComplainsReadComponent,
+    NotificationsComponent,
+    NotificationsFixedComponent,
+    NotificationsMessageComponent,
+    ContactusComponent,
+    ContactusNewComponent,
+    ContactusReadComponent,
+    ContactusNumbersComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +95,7 @@ import { LaborsReportsComponent } from './dashboard/labors/labors-reports/labors
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
