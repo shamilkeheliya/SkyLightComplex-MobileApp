@@ -13,7 +13,7 @@ import { MatInputModule} from '@angular/material/input';
 import { AdminComponent } from './components/admin/admin.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { FeedComponent } from './dashboard/feed/feed/feed.component';
 import { FeedGenaralComponent } from './dashboard/feed/feed-genaral/feed-genaral.component';
 import { FeedSpecialComponent } from './dashboard/feed/feed-special/feed-special.component';
@@ -44,7 +44,10 @@ import { ContactusComponent } from './dashboard/contactus/contactus/contactus.co
 import { ContactusNewComponent } from './dashboard/contactus/contactus-new/contactus-new.component';
 import { ContactusReadComponent } from './dashboard/contactus/contactus-read/contactus-read.component';
 import { ContactusNumbersComponent } from './dashboard/contactus/contactus-numbers/contactus-numbers.component';
-
+import {MatCardModule} from '@angular/material/card';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -81,7 +84,7 @@ import { ContactusNumbersComponent } from './dashboard/contactus/contactus-numbe
     ContactusComponent,
     ContactusNewComponent,
     ContactusReadComponent,
-    ContactusNumbersComponent
+    ContactusNumbersComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +97,10 @@ import { ContactusNumbersComponent } from './dashboard/contactus/contactus-numbe
     MatInputModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    MatCardModule,
+    AngularFireAuthModule,
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
