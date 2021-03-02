@@ -1,4 +1,6 @@
+import { FeedAddeventComponent } from './../feed-addevent/feed-addevent.component';
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-feed-special',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedSpecialComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  addEvent(){
+    const dialogRef = this.dialog.open(FeedAddeventComponent,{
+      height: 'auto',
+      width: '600px',
+    });
   }
 
 }

@@ -12,3 +12,10 @@
 .inner{
     margin-top: 10px;
 }
+.footer{
+    background-color: rgb(66, 162, 218);
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}

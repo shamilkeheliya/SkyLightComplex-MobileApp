@@ -1,4 +1,6 @@
+import { AddnumberComponent } from './addnumber/addnumber.component';
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-contactus-numbers',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactusNumbersComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  addNumber(){
+    const dialogRef = this.dialog.open(AddnumberComponent,{
+      height: 'auto',
+      width: '600px',
+    });
+  }
 }

@@ -19,7 +19,6 @@ import { FeedGenaralComponent } from './dashboard/feed/feed-genaral/feed-genaral
 import { FeedSpecialComponent } from './dashboard/feed/feed-special/feed-special.component';
 import { FeedAddeventComponent } from './dashboard/feed/feed-addevent/feed-addevent.component';
 import { UsersComponent } from './dashboard/users/users/users.component';
-import { UsersUsersComponent } from './dashboard/users/users-users/users-users.component';
 import { UsersAdduserComponent } from './dashboard/users/users-adduser/users-adduser.component';
 import { LaborsComponent } from './dashboard/labors/labors/labors.component';
 import { LaborsLaborsComponent } from './dashboard/labors/labors-labors/labors-labors.component';
@@ -48,6 +47,10 @@ import {MatCardModule} from '@angular/material/card';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
+import { AddbtnComponent } from './components/addbtn/addbtn.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddnumberComponent } from './dashboard/contactus/contactus-numbers/addnumber/addnumber.component';
 
 
 @NgModule({
@@ -60,7 +63,6 @@ import {MatButtonModule} from '@angular/material/button';
     FeedSpecialComponent,
     FeedAddeventComponent,
     UsersComponent,
-    UsersUsersComponent,
     UsersAdduserComponent,
     LaborsComponent,
     LaborsLaborsComponent,
@@ -85,6 +87,8 @@ import {MatButtonModule} from '@angular/material/button';
     ContactusNewComponent,
     ContactusReadComponent,
     ContactusNumbersComponent,
+    AddbtnComponent,
+    AddnumberComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +104,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatCardModule,
     AngularFireAuthModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

@@ -1,0 +1,8 @@
+<div class="out">
+    <h2 class="title">Add New Number</h2>
+    <div [formGroup]= "addForm" class="center" action="#">
+      <input class="in" type="text" title="title" placeholder="Title" formControlName="titile"/>
+      <input class="in" type="text" title="number" placeholder="Number" formControlName="number"/>
+      <button class="btn" type="button" (click)="add()"class="btn" style="margin-left: 30px;margin-bottom: 20px;">Add Number</button>
+    </div>
+  </div>
