@@ -1,0 +1,12 @@
+.out{
+    margin-top: 10px;
+    margin-left: 50px;
+}
+.card {
+    max-width: 800px;
+    margin-top: 10px;
+  }
+  
+  .header-image {
+    background-size: cover;
+  }

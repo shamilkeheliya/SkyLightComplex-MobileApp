@@ -50,6 +50,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { AddbtnComponent } from './components/addbtn/addbtn.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { AddnumberComponent } from './dashboard/contactus/contactus-numbers/addnumber/addnumber.component';
 
 
@@ -106,7 +107,8 @@ import { AddnumberComponent } from './dashboard/contactus/contactus-numbers/addn
     MatTableModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

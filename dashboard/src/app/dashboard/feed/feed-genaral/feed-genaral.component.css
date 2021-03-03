@@ -2,15 +2,15 @@
     list-style-type: none; /* Remove bullets */
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margins */
-    margin-left: 30px;
+    margin-left: 50px;
     margin-top: 20px;
   }
 
   .card {
-    max-width: 400px;
+    max-width: 600px;
   }
   
   .header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    
     background-size: cover;
   }

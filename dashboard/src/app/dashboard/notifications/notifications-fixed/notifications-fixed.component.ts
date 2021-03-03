@@ -11,5 +11,8 @@ export class NotificationsFixedComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  water(){}
+  electric(){}
 
 }

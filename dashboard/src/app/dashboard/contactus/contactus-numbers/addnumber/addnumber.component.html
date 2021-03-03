@@ -1,8 +1,17 @@
 <div class="out">
     <h2 class="title">Add New Number</h2>
     <div [formGroup]= "addForm" class="center" action="#">
-      <input class="in" type="text" title="title" placeholder="Title" formControlName="titile"/>
-      <input class="in" type="text" title="number" placeholder="Number" formControlName="number"/>
-      <button class="btn" type="button" (click)="add()"class="btn" style="margin-left: 30px;margin-bottom: 20px;">Add Number</button>
+      <input class="in" type="text" title="name" placeholder="Name" formControlName="na"/>
+      <input class="in" type="text" title="number" placeholder="Number" formControlName="num"/>
+      <button mat-button mat-dialog-close class="btn" type="button" (click)="onSubmit()"class="btn" style="margin-left: 30px;margin-bottom: 20px;">Add Number</button>
     </div>
   </div>
+
+  <!-- <div class="out">
+    <h2 class="title">Add New Number</h2>
+    <form (ngSubmit)="onSubmit()" class="center" name="form1">
+      <input class="in" type="text" placeholder="Name" (ngModel)="num.name" name="name">
+      <input class="in" type="text" placeholder="Number" (ngModel)="num.number"  name="number">
+      <input type="submit" value="Add Number" class="btn">
+    </form>
+  </div> -->

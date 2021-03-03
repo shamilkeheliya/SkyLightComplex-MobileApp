@@ -1,4 +1,50 @@
-<p>contactus-numbers works!</p>
+<div *ngIf="numbers?.length > 0; else noNumbers">
+    <ul *ngFor="let number of numbers" class="collection" id="list">
+        <li class="collection-number" id="list">
+
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{number.name}}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    <b>{{number.number}}</b>
+                    <mat-icon>account_circle</mat-icon>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+            
+                <mat-form-field>
+                  <mat-label>Name</mat-label>
+                  <input matInput #nm name="nm" value={{number.name}} >
+                </mat-form-field>
+            
+                <mat-form-field>
+                  <mat-label>Telephone Number</mat-label>
+                  <input matInput #num name="num" value={{number.number}} >
+                </mat-form-field>
+
+                <mat-panel-description>
+                  <button mat-raised-button (click)="update(nm.value, num.value, number.id)" >Save</button>
+                  
+                    <button mat-flat-button color="warn" (click)="delete(number.id)" >Delete</button>
+                  
+                </mat-panel-description>
+              
+                
+                
+            </mat-expansion-panel>
+        </mat-accordion>
+              
+        </li>
+    </ul>
+</div>
+
+<ng-template #noNumbers>
+    <hr>
+    <h5>There are no Numbers to list</h5>
+</ng-template>
+
 
 <div class="btn" (click)="addNumber()">
     <app-addbtn></app-addbtn>
