@@ -11,6 +11,7 @@
                 <mat-card-content>
                   <p>
                     --Name-- booked {{booking.type}} on {{booking.date}} at {{booking.time}} 
+                    <br>{{this.afs.collection('users').doc(booking.uid)}}
                   </p>
                 </mat-card-content>
               </mat-card>

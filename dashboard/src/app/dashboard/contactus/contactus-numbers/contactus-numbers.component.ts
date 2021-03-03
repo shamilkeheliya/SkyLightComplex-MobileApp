@@ -22,8 +22,7 @@ export class ContactusNumbersComponent implements OnInit {
     public dialog: MatDialog, 
     private numbersService: NumbersService, 
     private afs: AngularFirestore,
-    private snack: MatSnackBar,
-    
+    private snack: MatSnackBar,   
     ) { }
 
   ngOnInit(): void {
@@ -43,7 +42,7 @@ export class ContactusNumbersComponent implements OnInit {
   update(nm: any, num:any, id: any){
     if(nm != '' && num !='')
     {
-      this.afs.collection('numbers').doc(id).set({
+      this.afs.collection('numbers').doc(id).update({
         name: nm,
         number: num
       }).then(()=>{

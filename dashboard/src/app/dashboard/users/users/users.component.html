@@ -1,4 +1,73 @@
-<h1>Hello</h1>
+<div *ngIf="users?.length > 0; else noNumbers">
+    <ul *ngFor="let user of users" class="collection" id="list">
+        <li class="collection-user" id="list">
+
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{user.keyNum}}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    <b>{{user.firstName}} {{user.lastName}}</b>
+                  </mat-panel-description>
+                  <mat-panel-description>
+                    <b>{{user.mobile}}</b>
+                  </mat-panel-description>
+                  <mat-panel-description>
+                    <b>{{user.email}}</b>
+                  </mat-panel-description>
+                  <mat-panel-description>
+                    <b>{{user.nic}}</b>
+                    <mat-icon>account_circle</mat-icon>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput #fn name="fn" value={{user.firstName}} >
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput #ln name="ln" value={{user.lastName}} >
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Mobile Number</mat-label>
+                  <input matInput #mob name="mob" value={{user.mobile}} >
+                </mat-form-field>
+            
+                <mat-form-field>
+                  <mat-label>Email</mat-label>
+                  <input matInput #mail name="mail" value={{user.email}} >
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>NIC</mat-label>
+                    <input matInput #nic name="nic" value={{user.nic}} >
+                </mat-form-field>
+
+                <mat-panel-description>
+                    <button mat-raised-button (click)="update(fn.value, ln.value, mob.value, mail.value, nic.value, user.uid)" >Update</button>
+                  
+                    <button mat-flat-button color="warn" (click)="delete(user.uid)" >Delete</button>                   
+                </mat-panel-description>
+              
+                
+                
+            </mat-expansion-panel>
+        </mat-accordion>
+              
+        </li>
+    </ul>
+</div>
+
+<ng-template #noNumbers>
+    <hr>
+    <h5>There are no Users to list</h5>
+</ng-template>
+
 
 <div class="btn" (click)="addUser()">
     <app-addbtn></app-addbtn>

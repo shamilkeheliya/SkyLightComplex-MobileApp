@@ -51,6 +51,8 @@ import { AddbtnComponent } from './components/addbtn/addbtn.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AddnumberComponent } from './dashboard/contactus/contactus-numbers/addnumber/addnumber.component';
 
 
@@ -108,7 +110,9 @@ import { AddnumberComponent } from './dashboard/contactus/contactus-numbers/addn
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSlideToggleModule,
+    MatCheckboxModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
