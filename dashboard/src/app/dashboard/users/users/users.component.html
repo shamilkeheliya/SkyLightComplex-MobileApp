@@ -1,11 +1,13 @@
+
 <div *ngIf="users?.length > 0; else noNumbers">
     <ul *ngFor="let user of users" class="collection" id="list">
         <li class="collection-user" id="list">
 
         <mat-accordion class="example-headers-align" multi>
-            <mat-expansion-panel>
+            <mat-expansion-panel class="ex">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
+                    <div mat-card-avatar style="background-size: cover; background-image: url({{user.profileURL}});"></div>
                     {{user.keyNum}}
                   </mat-panel-title>
                   <mat-panel-description>
@@ -20,7 +22,7 @@
                   <mat-panel-description>
                     <b>{{user.nic}}</b>
                     <mat-icon>account_circle</mat-icon>
-                  </mat-panel-description>
+                    </mat-panel-description>
                 </mat-expansion-panel-header>
 
                 <mat-form-field>
@@ -51,7 +53,7 @@
                 <mat-panel-description>
                     <button mat-raised-button (click)="update(fn.value, ln.value, mob.value, mail.value, nic.value, user.uid)" >Update</button>
                   
-                    <button mat-flat-button color="warn" (click)="delete(user.uid)" >Delete</button>                   
+                    <button mat-raised-button color="warn" (click)="delete(user.uid)" >Delete</button>                   
                 </mat-panel-description>
               
                 

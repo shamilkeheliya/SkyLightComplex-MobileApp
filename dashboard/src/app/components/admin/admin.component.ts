@@ -34,25 +34,25 @@ export class AdminComponent implements OnInit {
               this.route.navigate(['/dashboard']);
               //console.log("Logged User");
               this.snack.open('Login Succusseful', "ok", {
-                duration: 5000,
+                duration: 3000,
               });
             } 
             else {
               this.snack.open('Invalid Login Attempt', "ok", {
-                duration: 5000,
+                duration: 3000,
               });
             }
           }
           else {
             this.snack.open('Invalid Login Attempt', "ok", {
-              duration: 5000,
+              duration: 3000,
             });
           }
         })
       }
       else {
         this.snack.open('Invalid Login Attempt', "ok", {
-          duration: 5000,
+          duration: 3000,
         });
       }
     }

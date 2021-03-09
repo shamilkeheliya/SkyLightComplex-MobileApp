@@ -3,7 +3,7 @@
         <li class="collection-number" id="list">
 
         <mat-accordion class="example-headers-align" multi>
-            <mat-expansion-panel>
+            <mat-expansion-panel class="ex">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     {{number.name}}
@@ -27,7 +27,7 @@
                 <mat-panel-description>
                   <button mat-raised-button (click)="update(nm.value, num.value, number.id)" >Save</button>
                   
-                    <button mat-flat-button color="warn" (click)="delete(number.id)" >Delete</button>
+                    <button mat-raised-button color="warn" (click)="delete(number.id)" >Delete</button>
                   
                 </mat-panel-description>
               

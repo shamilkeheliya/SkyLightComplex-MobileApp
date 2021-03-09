@@ -4,4 +4,5 @@ export interface Booking{
     date?:string;
     time?:string;
     type?:string;
+    user?:string;
   }

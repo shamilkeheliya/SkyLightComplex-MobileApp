@@ -1,4 +1,30 @@
-<p>feed-special works!</p>
+<div *ngIf="events?.length > 0; else noBookings">
+    <ul *ngFor="let event of events" class="collection" id="list">
+        <li class="collection-event">
+            
+            <mat-card class="card">
+                <mat-card-header>
+                    <mat-card-title>{{event.title}}</mat-card-title>
+                  <mat-card-subtitle>{{event.date}} at {{event.time}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src={{event.imageURL}} alt="Photo">
+                <mat-card-content>
+                  <p>{{event.description}}<br>{{event.date}}<br>{{event.time}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-raised-button color="warn" (click)="delete(event.id)">Delete</button>
+                </mat-card-actions>
+              </mat-card>
+              
+              
+        </li>
+    </ul>
+</div>
+
+<ng-template #noBookings>
+    <hr>
+    <h5>There are no Events to list</h5>
+</ng-template>
 
 <div class="btn" (click)="addEvent()">
     <app-addbtn></app-addbtn>

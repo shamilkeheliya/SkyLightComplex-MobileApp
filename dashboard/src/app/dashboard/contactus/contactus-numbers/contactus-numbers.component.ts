@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection} from '@angular/fire/firestore';
+import { stringify } from '@angular/compiler/src/util';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
   selector: 'app-contactus-numbers',
@@ -54,7 +56,7 @@ export class ContactusNumbersComponent implements OnInit {
     else
     {
       this.snack.open('Fields cannot be empty', "OK", {
-        duration: 5000,
+        duration: 3000,
       });
     }
   }
@@ -65,7 +67,7 @@ export class ContactusNumbersComponent implements OnInit {
   //     number: this.addForm.value.num
   //   }).then(()=>{
   //     this.snack.open('Updated Succusseful', "ok", {
-  //       duration: 5000,
+  //       duration: 3000,
   //     });
   //   })
   // }

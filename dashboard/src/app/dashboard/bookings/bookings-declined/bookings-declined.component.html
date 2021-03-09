@@ -3,7 +3,7 @@
         <li class="collection-booking" id="list">
 
         <mat-accordion class="example-headers-align" multi>
-            <mat-expansion-panel>
+            <mat-expansion-panel class="ex">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     {{booking.type}}
@@ -11,7 +11,7 @@
                   <mat-panel-description>
                     <b>{{booking.date}} at {{booking.time}}</b>
                     <mat-icon>book_online</mat-icon>
-                    <button mat-flat-button disabled >Declined</button>      
+                    <button mat-raised-button disabled >Declined</button>      
                   </mat-panel-description>
                 </mat-expansion-panel-header>
 
@@ -19,7 +19,7 @@
 
 
                 <mat-panel-description>
-                    <button mat-flat-button color="primary" (click)="accept(booking.id)">Accept</button>
+                    <button mat-raised-button color="primary" (click)="accept(booking.id)">Accept</button>
                 </mat-panel-description>
               
                 

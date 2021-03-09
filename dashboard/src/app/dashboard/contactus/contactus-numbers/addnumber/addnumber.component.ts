@@ -41,14 +41,14 @@ export class AddnumberComponent implements OnInit {
         number: this.addForm.value.num
       }).then(()=>{
         this.snack.open(this.addForm.value.na + ' Added Succusseful', "OK", {
-          duration: 5000,
+          duration: 3000,
         });
       })
     }
     else
     {
       this.snack.open('Fields cannot be empty', "OK", {
-        duration: 5000,
+        duration: 3000,
       });
     }
   }

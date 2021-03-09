@@ -2,10 +2,19 @@
 .btn{
     position: fixed;
     bottom: 0;
-    margin-bottom: 60px;
+    margin-bottom: 15px;
     right: 0;
     margin-right: 15px;
 }
+
+.ex{
+  background-color: rgb(235, 235, 235);
+}
+
+.ex{
+  background-color: rgb(235, 235, 235);
+}
+
 .example-headers-align .mat-expansion-panel-header-title,
 .example-headers-align .mat-expansion-panel-header-description {
   flex-basis: 0;
@@ -24,6 +33,12 @@
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.head{
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;

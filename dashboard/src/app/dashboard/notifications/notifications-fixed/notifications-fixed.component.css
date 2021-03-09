@@ -5,6 +5,7 @@
 .card {
     max-width: 800px;
     margin-top: 10px;
+    background-color: rgb(235, 235, 235);
   }
   
   .header-image {

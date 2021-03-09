@@ -14,8 +14,8 @@ import { UsersAdduserComponent } from '../users-adduser/users-adduser.component'
 })
 export class UsersComponent implements OnInit {
   users: User[];
-  usersCollection: AngularFirestoreCollection<Number>;
-  userDoc: AngularFirestoreDocument<Number>;
+  usersCollection: AngularFirestoreCollection<User>;
+  userDoc: AngularFirestoreDocument<User>;
 
   constructor(public dialog: MatDialog, 
     private usersService: UserService, 
@@ -54,7 +54,7 @@ export class UsersComponent implements OnInit {
     else
     {
       this.snack.open('Fields cannot be empty', "OK", {
-        duration: 5000,
+        duration: 3000,
       });
     }
   }
