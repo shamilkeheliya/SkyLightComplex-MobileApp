@@ -1,8 +1,8 @@
-export interface Complain{
+export interface Request{
     id?:string,
     uid?:string,
     userName?:string,
     userKeyNum?:string,
     type?:string,
-    message?:string,
+    reply?:string,
 }

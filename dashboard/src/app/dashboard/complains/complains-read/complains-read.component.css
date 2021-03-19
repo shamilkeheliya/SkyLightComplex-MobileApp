@@ -1,0 +1,40 @@
+.btn{
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 15px;
+    right: 0;
+    margin-right: 15px;
+}
+.ex{
+  background: linear-gradient(90deg, rgba(217,217,217,1) 0%, rgba(0,207,255,0.28644961402529767) 100%);
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+#list {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.no{
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 200px;
+  color: rgb(122, 122, 122);
+}

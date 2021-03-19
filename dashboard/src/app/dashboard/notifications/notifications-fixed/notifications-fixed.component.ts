@@ -14,5 +14,6 @@ export class NotificationsFixedComponent implements OnInit {
   
   water(){}
   electric(){}
+  emergency(){}
 
 }

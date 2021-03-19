@@ -1,1 +1,30 @@
-<p>complains-read works!</p>
+<div *ngIf="complains?.length > 0; else noNumbers">
+    <ul *ngFor="let complain of complains" class="collection" id="list">
+        <li class="collection-complain" id="list">
+
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel class="ex">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <b>{{complain.type}}</b>
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    <b>{{complain.userName}}</b>
+                    <b>{{complain.userKeyNum}}</b>
+                    <mat-icon>report_problem</mat-icon>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <p>{{complain.message}}</p>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+              
+        </li>
+    </ul>
+</div>
+
+<ng-template #noNumbers>
+    <hr>
+    <h5 class="no">There are no Complains to list</h5>
+</ng-template>

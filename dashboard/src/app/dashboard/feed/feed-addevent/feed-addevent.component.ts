@@ -15,13 +15,10 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class FeedAddeventComponent implements OnInit {
 
   addForm = this.fb.group({
-    firstName: new FormControl('',[Validators.required]),
-    lastName: new FormControl('',[Validators.required]),
-    nic: new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(12)]),
-    mobile: new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
-    email: new FormControl('',[Validators.required,Validators.email]),
-    pwd:   new FormControl('',[Validators.required]),
-    type: new FormControl('',[Validators.required]),
+    eventTitle: new FormControl('',[Validators.required]),
+    eventDescription: new FormControl('',[Validators.required]),
+    eventDate: new FormControl('',[Validators.required]),
+    eventTime: new FormControl('',[Validators.required]),
   })
 
   constructor(

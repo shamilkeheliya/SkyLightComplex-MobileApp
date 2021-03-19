@@ -8,12 +8,9 @@
 }
 
 .ex{
-  background-color: rgb(235, 235, 235);
+  background: linear-gradient(90deg, rgba(217,217,217,1) 0%, rgba(0,207,255,0.28644961402529767) 100%);
 }
 
-.ex{
-  background-color: rgb(235, 235, 235);
-}
 
 .example-headers-align .mat-expansion-panel-header-title,
 .example-headers-align .mat-expansion-panel-header-description {

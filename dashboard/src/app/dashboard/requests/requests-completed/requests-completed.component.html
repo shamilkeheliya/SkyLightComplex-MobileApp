@@ -1,1 +1,30 @@
-<p>requests-completed works!</p>
+
+<div *ngIf="requests?.length > 0; else noNumbers">
+    <ul *ngFor="let request of requests" class="collection" id="list">
+        <li class="collection-request" id="list">
+
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel class="ex">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <b>{{request.type}}</b>
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    <b>{{request.userName}}</b>
+                    <b>{{request.userKeyNum}}</b>
+                    <mat-icon>bookmark_add</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <p><b>{{request.reply}}</b></p>
+            </mat-expansion-panel>
+        </mat-accordion>
+              
+        </li>
+    </ul>
+</div>
+
+<ng-template #noNumbers>
+    <hr>
+    <h5 class="no">There are no Requests to list</h5>
+</ng-template>
