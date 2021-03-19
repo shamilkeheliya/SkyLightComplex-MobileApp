@@ -33,6 +33,7 @@ export class UsersComponent implements OnInit {
       height: 'auto',
       width: '600px',
     });
+    dialogRef.afterClosed();
   }
 
   update(fn:any,ln:any,mob:any,mail:any,nic:any,uid:any){

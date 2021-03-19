@@ -1,1 +1,13 @@
-<p>feed-addevent works!</p>
+
+    <div class="out">
+        <h2 class="title">Add New Labor</h2>
+        <div [formGroup]= "addForm" class="center" action="#">
+          <input class="in" type="text" title="eventTitle" placeholder="Event Title" formControlName="eventTitle"/>
+          <input class="in" type="text" title="eventDescription" placeholder="Event Description" formControlName="eventDescription"/>
+          <input class="in" type="date" title="eventDate" placeholder="Event Date" formControlName="eventDate"/>
+          <input class="in" type="time" title="eventTime" placeholder="Event Time" formControlName="eventTime"/>
+          <input class="in" type="file" >
+          <button class="btn" type="button" (click)="add()"class="btn" style="margin-left: 30px;margin-bottom: 20px;">Add Labor</button>
+        </div>
+      </div>
+  

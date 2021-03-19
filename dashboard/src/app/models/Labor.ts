@@ -6,5 +6,6 @@ export interface Labor{
     type?:string,
     mobile?:string,
     rating?:number,
-    stars?:number
+    stars?:number,
+    ratingCount?:number,
 }

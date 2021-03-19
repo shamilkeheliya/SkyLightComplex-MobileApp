@@ -2,18 +2,18 @@
     <div class="out">
       <h2 class="title">Add New Labor</h2>
       <div [formGroup]= "addForm" class="center" action="#">
-        <input class="in" type="text" title="keyNum" placeholder="Key Number" formControlName="keyNum"/>
         <input class="in" type="text" title="firstName" placeholder="First Name" formControlName="firstName"/>
         <input class="in" type="text" title="lastName" placeholder="Last Name" formControlName="lastName"/>
         <input class="in" type="text" title="nic" placeholder="NIC" formControlName="nic"/>
         <select class="in" title="type" formControlName="type">
-            <option value="servant">Servant</option>
-            <option value="electrician">Electrician</option>
-            <option value="plumber">Plumber</option>
-            <option value="cleaner">Cleaner</option>
+            <option value="Servant">Servant</option>
+            <option value="Electrician">Electrician</option>
+            <option value="Plumber">Plumber</option>
+            <option value="Cleaner">Cleaner</option>
         </select>
         <input class="in" type="text" title="mobile" placeholder="Mobile Number" formControlName="mobile"/>
         <input class="in" type="text" title="email" placeholder="Email" formControlName="email"/>
+        <input class="in" type="password" title="pwd" placeholder="Password" formControlName="pwd"/>
         <button class="btn" type="button" (click)="add()"class="btn" style="margin-left: 30px;margin-bottom: 20px;">Add Labor</button>
       </div>
     </div>

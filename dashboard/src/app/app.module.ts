@@ -53,6 +53,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatBadgeModule} from '@angular/material/badge';
 import { AddnumberComponent } from './dashboard/contactus/contactus-numbers/addnumber/addnumber.component';
 
 
@@ -112,7 +113,8 @@ import { AddnumberComponent } from './dashboard/contactus/contactus-numbers/addn
     MatDialogModule,
     MatExpansionModule,
     MatSlideToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatBadgeModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

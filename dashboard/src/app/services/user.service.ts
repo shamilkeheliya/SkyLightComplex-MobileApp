@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 export class UserService {
   usersCollection: AngularFirestoreCollection<User>;
   users: Observable<User[]>;
+  usersX: Observable<User[]>;
 
   constructor(private afs: AngularFirestore) {
     //this.users = this.afs.collection('users').valueChanges();
@@ -20,9 +21,15 @@ export class UserService {
         return data;
       });
     }))
+
+    this.usersX = this.afs.collection('users').valueChanges();
   }
 
   getUsers(){
     return this.users;
+  }
+
+  getU(){
+    return this.usersX;
   }
 }

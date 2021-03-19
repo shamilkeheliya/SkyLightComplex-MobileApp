@@ -33,6 +33,7 @@ export class LaborsLaborsComponent implements OnInit {
       height: 'auto',
       width: '600px',
     });
+    dialogRef.afterClosed();
   }
 
   

@@ -6,7 +6,7 @@
             <mat-expansion-panel class="ex">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    {{booking.type}}
+                    <b>{{booking.type}}</b>
                   </mat-panel-title>
                   <mat-panel-description>
                     <b>{{booking.date}} at {{booking.time}}</b>
@@ -15,7 +15,7 @@
                   </mat-panel-description>
                 </mat-expansion-panel-header>
 
-                <p>User : --name--</p>
+                <p><b>{{booking.userName}}</b></p>
 
 
                 <mat-panel-description>
@@ -33,5 +33,5 @@
 
 <ng-template #noNumbers>
     <hr>
-    <h5>There are no Bookings to list</h5>
+    <h5 class="no">There are no Bookings to list</h5>
 </ng-template>

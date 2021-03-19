@@ -38,7 +38,7 @@ export class ContactusNumbersComponent implements OnInit {
       height: 'auto',
       width: '600px',
     });
-    dialogRef.afterClosed()
+    dialogRef.afterClosed();
   }
 
   update(nm: any, num:any, id: any){
