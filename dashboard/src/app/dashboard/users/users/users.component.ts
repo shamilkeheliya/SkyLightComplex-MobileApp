@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit {
   constructor(public dialog: MatDialog, 
     private usersService: UserService, 
     private afs: AngularFirestore,
-    private snack: MatSnackBar,   ) { }
+    private snack: MatSnackBar   ) { }
 
   ngOnInit(): void {
     this.usersService.getUsers().subscribe(users =>{
