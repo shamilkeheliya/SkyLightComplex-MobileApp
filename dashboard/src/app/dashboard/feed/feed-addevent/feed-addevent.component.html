@@ -1,13 +1,15 @@
 
     <div class="out">
         <h2 class="title">Add New Labor</h2>
-        <div [formGroup]= "addForm" class="center" action="#">
+        <div [formGroup]= "form" class="center" action="#">
           <input class="in" type="text" title="eventTitle" placeholder="Event Title" formControlName="eventTitle"/>
           <input class="in" type="text" title="eventDescription" placeholder="Event Description" formControlName="eventDescription"/>
           <input class="in" type="date" title="eventDate" placeholder="Event Date" formControlName="eventDate"/>
           <input class="in" type="time" title="eventTime" placeholder="Event Time" formControlName="eventTime"/>
-          <input class="in" type="file">
-          <button class="btn" type="button" (click)="add()"class="btn" style="margin-left: 30px;margin-bottom: 20px;">Add Labor</button>
+          <input type="file" (change)="uploadFile($event)">
+          <br>
+          <mat-progress-bar style="height: 10px;" mode="determinate" value="{{ uploadPercent | async }}"></mat-progress-bar>
+          <button class="btn" type="button" (click)="addEvent()" class="btn" style="margin-left: 30px;margin-bottom: 20px;">Add Labor</button>
         </div>
       </div>
   
