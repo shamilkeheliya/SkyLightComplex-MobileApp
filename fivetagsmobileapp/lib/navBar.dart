@@ -7,10 +7,23 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  int _selectedIndex = 0;
   void _onItemTapped(int index) {
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, "/");
+        break;
+      case 1:
+        Navigator.pushNamed(context, "/reservation");
+        break;
+      case 2:
+        Navigator.pushNamed(context, "/requests");
+        break;
+      case 3:
+        Navigator.pushNamed(context, "/complains");
+        break;
+    }
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
     });
   }
 
@@ -39,7 +52,7 @@ class _NavBarState extends State<NavBar> {
           backgroundColor: blueDark,
         ),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: selectedIndex,
       selectedItemColor: blueLightSelected,
       unselectedItemColor: blueLightUnelected,
       showUnselectedLabels: true,

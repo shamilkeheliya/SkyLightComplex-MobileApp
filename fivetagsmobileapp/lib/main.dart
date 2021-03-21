@@ -14,16 +14,21 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //return Splash();
-    //return Login();
-    //return Feed();
-    //return Reservations();
-    //return Requests();
-    //return Complains();
-    //return Profile();
+    // return MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: Complains(),
+    // );
+
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Complains(),
+      initialRoute: '/',
+      routes: {
+        '/splash': (context) => Splash(),
+        '/login': (context) => Login(),
+        '/': (context) => Feed(),
+        '/reservation': (context) => Reservations(),
+        '/requests': (context) => Requests(),
+        '/complains': (context) => Complains(),
+      },
     );
   }
 }

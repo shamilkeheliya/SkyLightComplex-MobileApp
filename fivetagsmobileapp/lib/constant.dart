@@ -7,3 +7,5 @@ const blueLightSelected = Color(0xFF15D9E8);
 const blueLightUnelected = Color(0xFF007680);
 
 const mainFont = 'Righteous';
+
+int selectedIndex = 0;

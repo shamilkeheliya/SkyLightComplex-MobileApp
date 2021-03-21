@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import '../constant.dart';
-import '../constant.dart';
 
 class Login extends StatefulWidget {
   Login({Key key}) : super(key: key);

@@ -1,8 +1,6 @@
-import 'package:fivetagsmobileapp/navBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
-import 'package:fivetagsmobileapp/drawer.dart';
 
 class About extends StatefulWidget {
   @override

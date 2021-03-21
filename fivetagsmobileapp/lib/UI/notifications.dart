@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 
-class Settings extends StatefulWidget {
+class Notifications extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Settings> {
+class _HomeState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,7 @@ class _HomeState extends State<Settings> {
         ),
         backgroundColor: blueLight,
         title: const Text(
-          'Settings',
+          'Notifications',
           style: TextStyle(
             fontFamily: mainFont,
             color: blueMid,

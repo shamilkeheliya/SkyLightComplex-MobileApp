@@ -1,3 +1,8 @@
+import 'package:fivetagsmobileapp/UI/about.dart';
+import 'package:fivetagsmobileapp/UI/contactus.dart';
+import 'package:fivetagsmobileapp/UI/profile.dart';
+import 'package:fivetagsmobileapp/UI/qna.dart';
+import 'package:fivetagsmobileapp/UI/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:getwidget/getwidget.dart';
@@ -21,7 +26,7 @@ class _DrwrState extends State<Drwr> {
         child: GFDrawer(
           child: ListView(
             padding: EdgeInsets.zero,
-            children: const <Widget>[
+            children: <Widget>[
               GFDrawerHeader(
                 currentAccountPicture: GFAvatar(
                   radius: 80.0,
@@ -49,22 +54,72 @@ class _DrwrState extends State<Drwr> {
               ListTile(
                 leading: Icon(Icons.account_circle),
                 title: Text('Profile'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Profile();
+                      },
+                    ),
+                  );
+                },
               ),
               ListTile(
                 leading: Icon(Icons.settings),
                 title: Text('Settings'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Settings();
+                      },
+                    ),
+                  );
+                },
               ),
               ListTile(
                 leading: Icon(Icons.contact_support),
                 title: Text('Q n A'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return QnA();
+                      },
+                    ),
+                  );
+                },
               ),
               ListTile(
                 leading: Icon(Icons.info),
                 title: Text('About'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return About();
+                      },
+                    ),
+                  );
+                },
               ),
               ListTile(
                 leading: Icon(Icons.support_agent),
                 title: Text('Contact Us'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ContactUs();
+                      },
+                    ),
+                  );
+                },
               ),
               ListTile(
                 //contentPadding: EdgeInsets.only(top: 100.0),
