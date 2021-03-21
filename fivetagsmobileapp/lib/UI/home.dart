@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
+import 'package:getwidget/getwidget.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -19,14 +21,6 @@ class _HomeState extends State<Home> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          // leading: IconButton(
-          //   icon: Icon(
-          //     Icons.blur_on_rounded,
-          //     color: blueDark,
-          //     size: 35.0,
-          //   ),
-          //   onPressed: () => Scaffold.of(context).openDrawer(),
-          // ),
           iconTheme: IconThemeData(
             color: blueMid,
           ),
@@ -49,48 +43,65 @@ class _HomeState extends State<Home> {
           data: Theme.of(context).copyWith(
             canvasColor: blueLight,
           ),
-          child: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: const <Widget>[
-                DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: blueLightUnelected,
-                  ),
-                  child: Text(
-                    'SkyLight Complex',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: mainFont,
-                      fontSize: 24,
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(150),
+            ),
+            child: GFDrawer(
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: const <Widget>[
+                  GFDrawerHeader(
+                    currentAccountPicture: GFAvatar(
+                      radius: 80.0,
+                      backgroundImage: AssetImage('images/logo.png'),
+                    ),
+                    decoration: BoxDecoration(
+                      color: blueLightUnelected,
+                      boxShadow: [BoxShadow(color: blueLight, spreadRadius: 1)],
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 20.0),
+                      child: Center(
+                        child: Text(
+                          'Shamil\nMuhandiram',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: mainFont,
+                            fontSize: 24,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-                ListTile(
-                  leading: Icon(Icons.account_circle),
-                  title: Text('Profile'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text('Settings'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.question_answer),
-                  title: Text('Q n A'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.info),
-                  title: Text('About'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.message),
-                  title: Text('Contact Us'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.arrow_back),
-                  title: Text('Log Out'),
-                ),
-              ],
+                  ListTile(
+                    leading: Icon(Icons.account_circle),
+                    title: Text('Profile'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.settings),
+                    title: Text('Settings'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.contact_support),
+                    title: Text('Q n A'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.info),
+                    title: Text('About'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.support_agent),
+                    title: Text('Contact Us'),
+                  ),
+                  ListTile(
+                    //contentPadding: EdgeInsets.only(top: 100.0),
+                    leading: Icon(Icons.arrow_back),
+                    title: Text('Log Out'),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
