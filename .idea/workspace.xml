@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b278a1a6-a634-4f10-b6de-fc5f991cc959" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/fivetagsmobileapp/lib/splash.dart" beforeDir="false" afterPath="$PROJECT_DIR$/fivetagsmobileapp/lib/splash.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fivetagsmobileapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/fivetagsmobileapp/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fivetagsmobileapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/fivetagsmobileapp/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
