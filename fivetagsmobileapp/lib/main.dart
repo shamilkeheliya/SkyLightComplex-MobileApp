@@ -1,3 +1,6 @@
+import 'package:fivetagsmobileapp/UI/complains.dart';
+import 'package:fivetagsmobileapp/UI/requests.dart';
+import 'package:fivetagsmobileapp/UI/reservation.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/UI/splash.dart';
 import 'package:fivetagsmobileapp/UI/login.dart';
@@ -12,6 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //return Splash();
     // return Login();
-    return Feed();
+    //return Feed();
+    //return Reservations();
+    //return Requests();
+    return Complains();
   }
 }

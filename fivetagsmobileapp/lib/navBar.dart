@@ -25,7 +25,7 @@ class _NavBarState extends State<NavBar> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.add_circle),
-          label: 'Bookings',
+          label: 'Reservations',
           backgroundColor: blueDark,
         ),
         BottomNavigationBarItem(

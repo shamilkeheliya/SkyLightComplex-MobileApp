@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:fivetagsmobileapp/drawer.dart';
 
-class Feed extends StatefulWidget {
+class Reservations extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Feed> {
+class _HomeState extends State<Reservations> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +20,7 @@ class _HomeState extends State<Feed> {
           ),
           backgroundColor: blueLight,
           title: const Text(
-            'SkyLight NewsFeed',
+            'Reservations',
             style: TextStyle(
               fontFamily: mainFont,
               color: blueMid,
