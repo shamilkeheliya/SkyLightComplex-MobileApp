@@ -26,21 +26,26 @@ class _SplashState extends State<Splash> {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                padding: const EdgeInsets.only(top: 100.0),
+                //padding: const EdgeInsets.only(top: 100.0),
                 child: Image.asset(
                   'images/logo.png',
                   height: 140.0,
                 ),
               ),
+              SizedBox(
+                height: 60.0,
+              ),
               Container(
-                padding: const EdgeInsets.only(left: 20.0, top: 70.0),
+                padding: const EdgeInsets.only(left: 20.0),
                 child: Text(
                   'Welcom to Our',
                   style: TextStyle(
                     fontSize: 23.0,
                     color: Colors.white,
+                    fontFamily: 'Righteous',
                   ),
                 ),
               ),
@@ -55,6 +60,7 @@ class _SplashState extends State<Splash> {
                       fontSize: 48.0,
                       fontWeight: FontWeight.w400,
                       color: Colors.white,
+                      fontFamily: 'Righteous',
                     ),
                   ),
                 ),
