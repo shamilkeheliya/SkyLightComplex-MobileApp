@@ -6,10 +6,10 @@
           <input class="in" type="text" title="eventDescription" placeholder="Event Description" formControlName="eventDescription"/>
           <input class="in" type="date" title="eventDate" placeholder="Event Date" formControlName="eventDate"/>
           <input class="in" type="time" title="eventTime" placeholder="Event Time" formControlName="eventTime"/>
-          <input type="file" (change)="uploadFile($event)">
+          <input  class="in" type="file" (change)="uploadFile($event)">
           <br>
-          <mat-progress-bar style="height: 10px;" mode="determinate" value="{{ uploadPercent | async }}"></mat-progress-bar>
-          <button class="btn" type="button" (click)="addEvent()" class="btn" style="margin-left: 30px;margin-bottom: 20px;">Add Labor</button>
+          <!--<mat-progress-bar style="height: 10px;" mode="determinate" value="{{ uploadPercent | async }}"></mat-progress-bar>-->
+          <button class="btn" type="button" (click)="addEvent()" style="margin-left: 30px;margin-bottom: 20px;">Add Event</button>
         </div>
       </div>
   
