@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fivetagsmobileapp/splash.dart';
+import 'package:fivetagsmobileapp/UI/splash.dart';
 
 void main() {
   runApp(MyApp());
