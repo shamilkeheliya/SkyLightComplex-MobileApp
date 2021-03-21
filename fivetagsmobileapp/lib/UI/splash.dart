@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 
-import 'constant.dart';
-import 'constant.dart';
-import 'constant.dart';
-
 class Splash extends StatefulWidget {
   @override
   _SplashState createState() => _SplashState();
