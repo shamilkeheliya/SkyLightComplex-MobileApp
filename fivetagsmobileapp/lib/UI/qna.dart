@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:fivetagsmobileapp/drawer.dart';
 
-class Complains extends StatefulWidget {
+class QnA extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Complains> {
+class _HomeState extends State<QnA> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +19,7 @@ class _HomeState extends State<Complains> {
         ),
         backgroundColor: blueLight,
         title: const Text(
-          'Complains',
+          'Q n A',
           style: TextStyle(
             fontFamily: mainFont,
             color: blueMid,
@@ -32,7 +32,6 @@ class _HomeState extends State<Complains> {
           ),
         ],
       ),
-      drawer: Drwr(),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -43,7 +42,6 @@ class _HomeState extends State<Complains> {
           ),
         ),
       ),
-      bottomNavigationBar: NavBar(),
     );
   }
 }
