@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:getwidget/getwidget.dart';
 
-class Home extends StatefulWidget {
+class Feed extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Feed> {
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
