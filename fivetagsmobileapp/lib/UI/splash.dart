@@ -34,26 +34,25 @@ class _SplashState extends State<Splash> {
               SizedBox(
                 height: 60.0,
               ),
-              Container(
-                padding: const EdgeInsets.only(left: 20.0),
-                child: Text(
-                  'Welcom to Our',
-                  style: TextStyle(
-                    fontSize: 23.0,
-                    color: Colors.white,
-                    fontFamily: 'Righteous',
+              Center(
+                child: Container(
+                  padding: const EdgeInsets.only(right: 200.0),
+                  child: Text(
+                    'Welcome to Our',
+                    style: TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white,
+                      fontFamily: 'Righteous',
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 7.0,
               ),
               Center(
                 child: Container(
                   child: Text(
-                    'SkyLight Complex',
+                    'SkyLight',
                     style: TextStyle(
-                      fontSize: 48.0,
+                      fontSize: 75.0,
                       fontWeight: FontWeight.w400,
                       color: Colors.white,
                       fontFamily: 'Righteous',
@@ -61,14 +60,18 @@ class _SplashState extends State<Splash> {
                   ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.only(left: 200.0),
-                child: Text(
-                  'User Application',
-                  style: TextStyle(
-                      fontSize: 22.0,
+              Center(
+                child: Container(
+                  padding: const EdgeInsets.only(left: 200.0),
+                  child: Text(
+                    'Complex',
+                    style: TextStyle(
+                      fontSize: 30.0,
                       color: Colors.white,
-                      fontWeight: FontWeight.w400),
+                      fontWeight: FontWeight.w400,
+                      fontFamily: 'Righteous',
+                    ),
+                  ),
                 ),
               ),
             ],
