@@ -21,7 +21,7 @@ class _HomeState extends State<Feed> {
         ),
         backgroundColor: blueLight,
         leading: IconButton(
-          icon: Icon(Icons.accessible),
+          icon: Icon(Icons.blur_on_sharp),
           onPressed: () => Scaffold.of(context).openDrawer(),
         ),
         title: const Text(
