@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "630269521518",
+    "firebase_url": "https://mobileapp-b9de2-default-rtdb.firebaseio.com",
+    "project_id": "mobileapp-b9de2",
+    "storage_bucket": "mobileapp-b9de2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630269521518:android:1ad495a6a968817836807f",
+        "android_client_info": {
+          "package_name": "co.fivetagsmobileapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630269521518-u36mhdsepk1ktlrq3h0h4thdouhckghf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT_tQQmSoYyGiWIHWQLrY_4gypQ2orG2Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630269521518-u36mhdsepk1ktlrq3h0h4thdouhckghf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

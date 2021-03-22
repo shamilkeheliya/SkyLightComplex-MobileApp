@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/UI/splash.dart';
 import 'package:fivetagsmobileapp/UI/login.dart';
 import 'package:fivetagsmobileapp/UI/feed.dart';
+import 'package:firebase/firebase.dart';
 
 void main() {
   runApp(MyApp());
