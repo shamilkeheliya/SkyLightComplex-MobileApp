@@ -5,7 +5,7 @@ import 'package:fivetagsmobileapp/UI/qna.dart';
 import 'package:fivetagsmobileapp/UI/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
-import 'package:getwidget/getwidget.dart';
+import 'package:fivetagsmobileapp/getwidget/getwidget.dart';
 
 class Drwr extends StatefulWidget {
   @override
