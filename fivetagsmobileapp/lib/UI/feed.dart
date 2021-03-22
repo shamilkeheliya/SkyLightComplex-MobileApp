@@ -20,10 +20,10 @@ class _HomeState extends State<Feed> {
           color: blueMid,
         ),
         backgroundColor: blueLight,
-        leading: IconButton(
-          icon: Icon(Icons.blur_on_sharp),
-          onPressed: () => Scaffold.of(context).openDrawer(),
-        ),
+        // leading: IconButton(
+        //   icon: Icon(Icons.blur_on_sharp),
+        //   onPressed: () => Scaffold.of(context).openDrawer(),
+        // ),
         title: const Text(
           'SkyLight NewsFeed',
           style: TextStyle(
