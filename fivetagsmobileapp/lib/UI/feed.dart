@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:fivetagsmobileapp/drawer.dart';
+//import 'package:fivetagsmobileapp/flutter/packages/flutter/lib/src/material/app_bar.dart';
 
 class Feed extends StatefulWidget {
   @override
@@ -19,6 +20,10 @@ class _HomeState extends State<Feed> {
           color: blueMid,
         ),
         backgroundColor: blueLight,
+        leading: IconButton(
+          icon: Icon(Icons.accessible),
+          onPressed: () => Scaffold.of(context).openDrawer(),
+        ),
         title: const Text(
           'SkyLight NewsFeed',
           style: TextStyle(
