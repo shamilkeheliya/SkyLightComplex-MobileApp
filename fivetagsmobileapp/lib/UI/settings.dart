@@ -23,6 +23,12 @@ class _HomeState extends State<Settings> {
             color: blueMid,
           ),
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: Container(
         decoration: BoxDecoration(

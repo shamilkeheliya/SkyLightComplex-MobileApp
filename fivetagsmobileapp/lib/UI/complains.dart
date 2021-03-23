@@ -1,4 +1,3 @@
-import 'package:fivetagsmobileapp/UI/notifications.dart';
 import 'package:fivetagsmobileapp/navBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -29,16 +28,7 @@ class _HomeState extends State<Complains> {
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.notifications),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return Notifications();
-                  },
-                ),
-              );
-            },
+            onPressed: () {},
           ),
         ],
       ),
