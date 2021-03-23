@@ -1,9 +1,9 @@
+import 'package:fivetagsmobileapp/UI/notifications.dart';
 import 'package:fivetagsmobileapp/navBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:fivetagsmobileapp/drawer.dart';
-//import 'package:fivetagsmobileapp/flutter/packages/flutter/lib/src/material/app_bar.dart';
 
 class Feed extends StatefulWidget {
   @override
@@ -19,10 +19,6 @@ class _HomeState extends State<Feed> {
           color: blueMid,
         ),
         backgroundColor: blueLight,
-        // leading: IconButton(
-        //   icon: Icon(Icons.blur_on_sharp),
-        //   onPressed: () => Scaffold.of(context).openDrawer(),
-        // ),
         title: const Text(
           'SkyLight NewsFeed',
           style: TextStyle(
@@ -33,7 +29,16 @@ class _HomeState extends State<Feed> {
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.notifications),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Notifications();
+                  },
+                ),
+              );
+            },
           ),
         ],
       ),

@@ -5,6 +5,7 @@ import 'package:fivetagsmobileapp/UI/qna.dart';
 import 'package:fivetagsmobileapp/UI/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
+import 'package:getwidget/getwidget.dart';
 
 class Drwr extends StatefulWidget {
   @override
@@ -22,11 +23,15 @@ class _DrwrState extends State<Drwr> {
         borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(150),
         ),
-        child: Drawer(
+        child: GFDrawer(
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-              DrawerHeader(
+              GFDrawerHeader(
+                currentAccountPicture: GFAvatar(
+                  radius: 80.0,
+                  backgroundImage: AssetImage('images/logo.png'),
+                ),
                 decoration: BoxDecoration(
                   color: blueLightUnelected,
                   boxShadow: [BoxShadow(color: blueLight, spreadRadius: 1)],
