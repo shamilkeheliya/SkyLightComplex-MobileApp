@@ -12,30 +12,30 @@ void main() {
   runApp(MyApp());
 }
 
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       initialRoute: '/',
-//       routes: {
-//         '/': (context) => Splash(),
-//         '/login': (context) => Login(),
-//         '/feed': (context) => Feed(),
-//         '/reservation': (context) => Reservations(),
-//         '/requests': (context) => Requests(),
-//         '/complains': (context) => Complains(),
-//       },
-//     );
-//   }
-// }
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Feed(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Splash(),
+        '/login': (context) => Login(),
+        '/feed': (context) => Feed(),
+        '/reservation': (context) => Reservations(),
+        '/requests': (context) => Requests(),
+        '/complains': (context) => Complains(),
+      },
     );
   }
 }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Feed(),
+//     );
+//   }
+// }

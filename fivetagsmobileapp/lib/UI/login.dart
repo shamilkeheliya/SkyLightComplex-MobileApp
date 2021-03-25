@@ -96,7 +96,9 @@ class _LoginState extends State<Login> {
                           fontFamily: mainFont,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/feed");
+                      },
                     ),
                   ),
                 ],

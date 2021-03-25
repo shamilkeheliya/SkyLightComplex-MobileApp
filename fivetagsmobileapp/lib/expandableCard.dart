@@ -25,6 +25,12 @@ class ExCard extends StatelessWidget {
               child: Container(
                 //color: blueLightSelected,
                 decoration: BoxDecoration(
+                  border: Border(
+                    top: BorderSide.none,
+                    right: BorderSide.none,
+                    left: BorderSide.none,
+                    bottom: BorderSide.none,
+                  ),
                   gradient: LinearGradient(
                     begin: Alignment(0.0, -1.0),
                     end: Alignment(0.0, 1.0),
