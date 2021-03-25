@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/UI/splash.dart';
 import 'package:fivetagsmobileapp/UI/login.dart';
 import 'package:fivetagsmobileapp/UI/feed.dart';
+import 'package:expandable/expandable.dart';
 
 void main() {
   runApp(MyApp());
