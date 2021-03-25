@@ -1,4 +1,5 @@
 import 'package:fivetagsmobileapp/UI/notifications.dart';
+import 'package:fivetagsmobileapp/UI/qna.dart';
 import 'package:fivetagsmobileapp/navBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

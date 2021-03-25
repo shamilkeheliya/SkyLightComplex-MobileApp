@@ -1,5 +1,9 @@
+import 'package:fivetagsmobileapp/UI/login.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
+import 'dart:async';
+
+import 'package:page_transition/page_transition.dart';
 
 class Splash extends StatefulWidget {
   @override
@@ -9,6 +13,17 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.push(
+        context,
+        PageTransition(
+            type: PageTransitionType.fade,
+            child: Login(),
+            inheritTheme: true,
+            ctx: context),
+      );
+    });
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(

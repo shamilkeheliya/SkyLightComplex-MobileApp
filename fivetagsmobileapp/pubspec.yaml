@@ -10,6 +10,10 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.0
   expandable: ^5.0.1
+  convex_bottom_bar: ^3.0.0
+  page_transition: "^1.1.7+6"
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
