@@ -1,3 +1,8 @@
+import 'package:fivetagsmobileapp/UI/QnA/qComplains.dart';
+import 'package:fivetagsmobileapp/UI/QnA/qOthers.dart';
+import 'package:fivetagsmobileapp/UI/QnA/qRequests.dart';
+import 'package:fivetagsmobileapp/UI/QnA/qReservation.dart';
+import 'package:fivetagsmobileapp/UI/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
@@ -35,30 +40,50 @@ class _HomeState extends State<QnA> {
             stops: [0.0, 1.0],
           ),
         ),
-        child: ExpandableTheme(
-          data: const ExpandableThemeData(
-            iconColor: blueMid,
-            useInkWell: true,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            btn('Reservations', QReservation()),
+            btn('Requests', QRequests()),
+            btn('Complains', QComplains()),
+            btn('Others', QOthers()),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Expanded btn(title, page) {
+    return Expanded(
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.0),
+            gradient: LinearGradient(
+              begin: Alignment(0.0, -1.0),
+              end: Alignment(0.0, 1.0),
+              colors: [blueLightUnelected, blueLightSelected],
+              stops: [0.0, 1.0],
+            ),
           ),
-          child: ListView(
-            physics: const BouncingScrollPhysics(),
-            children: <Widget>[
-              ExCard('How Book Hall?',
-                  'First, move to the Booking Tab using the bottom tab section. Then select Hall. Then pick a date and time for the booking. Last, Click on the “Reserve” button.'),
-              ExCard('How Book Rooftop?',
-                  'First, move to the Booking Tab using the bottom tab section. Then select the Rooftop. Then pick a date and time for the booking. Last, Click on the “Reserve” button.'),
-              ExCard('How Book Table Tennis Table?',
-                  ' First, move to the Booking Tab using the bottom tab section. Then select Table Tennis Table. Then pick a date and time for the booking. Last, Click on the “Reserve” button.'),
-              ExCard('How Book Badminton Court?',
-                  ' First, move to the Booking Tab using the bottom tab section. Then select Table Tennis Table. Then pick a date and time for the booking. Last, Click on the “Reserve” button.'),
-              ExCard('How Book Billiard Table?',
-                  'First, move to the Booking Tab using the bottom tab section. Then select the Billiard Table. Then pick a date and time for the booking. Last, Click on the “Reserve” button.'),
-              ExCard('How Book Tennis Court?',
-                  'First, move to the Booking Tab using the bottom tab section. Then select the Tennis Court. Then pick a date and time for the booking. Last, Click on the “Reserve” button.'),
-              ExCard('How Book Vehicle?',
-                  'First, move to the Booking Tab using the bottom tab section. Then select the Vehicle you want. Then pick a date and time for the booking. Last, Click on the “Reserve” button.'),
-              ExCard('Question', 'Description'),
-            ],
+          child: FlatButton(
+            //color: blueLightSelected,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return page;
+                  },
+                ),
+              );
+            },
+            child: Text(
+              title,
+              style: TextStyle(
+                  fontSize: 25.0, color: blueDark, fontWeight: FontWeight.w400),
+            ),
           ),
         ),
       ),

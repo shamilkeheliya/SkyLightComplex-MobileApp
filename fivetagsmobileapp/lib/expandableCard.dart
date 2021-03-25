@@ -14,7 +14,7 @@ class ExCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ExpandableNotifier(
         child: Padding(
-      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 10),
       child: Card(
         clipBehavior: Clip.antiAlias,
         child: Column(
@@ -23,7 +23,15 @@ class ExCard extends StatelessWidget {
               scrollOnExpand: true,
               scrollOnCollapse: false,
               child: Container(
-                color: blueLightSelected,
+                //color: blueLightSelected,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment(0.0, -1.0),
+                    end: Alignment(0.0, 1.0),
+                    colors: [blueLightUnelected, blueLightSelected],
+                    stops: [0.0, 1.0],
+                  ),
+                ),
                 child: ExpandablePanel(
                   theme: const ExpandableThemeData(
                     headerAlignment: ExpandablePanelHeaderAlignment.center,
@@ -34,7 +42,7 @@ class ExCard extends StatelessWidget {
                       child: Text(
                         title,
                         style: TextStyle(
-                          color: blueMid,
+                          color: blueDark,
                           fontSize: 17.0,
                           fontWeight: FontWeight.w600,
                         ),

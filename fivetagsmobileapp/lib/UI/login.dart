@@ -10,10 +10,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  get bottom => null;
-
-  get top => null;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +23,10 @@ class _LoginState extends State<Login> {
           ),
         ),
         child: ListView(
+          physics: const BouncingScrollPhysics(),
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 40.0),
+              padding: const EdgeInsets.symmetric(vertical: 40.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,

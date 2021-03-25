@@ -1,4 +1,5 @@
 import 'package:fivetagsmobileapp/UI/complains.dart';
+import 'package:fivetagsmobileapp/UI/qna.dart';
 import 'package:fivetagsmobileapp/UI/requests.dart';
 import 'package:fivetagsmobileapp/UI/reservation.dart';
 import 'package:fivetagsmobileapp/test.dart';
@@ -18,9 +19,9 @@ void main() {
 //       debugShowCheckedModeBanner: false,
 //       initialRoute: '/',
 //       routes: {
-//         '/splash': (context) => Splash(),
+//         '/': (context) => Splash(),
 //         '/login': (context) => Login(),
-//         '/': (context) => Feed(),
+//         '/feed': (context) => Feed(),
 //         '/reservation': (context) => Reservations(),
 //         '/requests': (context) => Requests(),
 //         '/complains': (context) => Complains(),
@@ -34,11 +35,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => Splash(),
-        '/login': (context) => Login(),
-      },
+      home: Feed(),
     );
   }
 }
