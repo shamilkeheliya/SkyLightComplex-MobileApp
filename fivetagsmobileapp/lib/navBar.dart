@@ -1,5 +1,10 @@
+import 'package:fivetagsmobileapp/UI/complains.dart';
+import 'package:fivetagsmobileapp/UI/feed.dart';
+import 'package:fivetagsmobileapp/UI/requests.dart';
+import 'package:fivetagsmobileapp/UI/reservation.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
+import 'package:page_transition/page_transition.dart';
 
 class NavBar extends StatefulWidget {
   @override
@@ -10,16 +15,44 @@ class _NavBarState extends State<NavBar> {
   void _onItemTapped(int index) {
     switch (index) {
       case 0:
-        Navigator.pushNamed(context, "/");
+        Navigator.push(
+          context,
+          PageTransition(
+              type: PageTransitionType.fade,
+              child: Feed(),
+              inheritTheme: true,
+              ctx: context),
+        );
         break;
       case 1:
-        Navigator.pushNamed(context, "/reservation");
+        Navigator.push(
+          context,
+          PageTransition(
+              type: PageTransitionType.fade,
+              child: Reservations(),
+              inheritTheme: true,
+              ctx: context),
+        );
         break;
       case 2:
-        Navigator.pushNamed(context, "/requests");
+        Navigator.push(
+          context,
+          PageTransition(
+              type: PageTransitionType.fade,
+              child: Requests(),
+              inheritTheme: true,
+              ctx: context),
+        );
         break;
       case 3:
-        Navigator.pushNamed(context, "/complains");
+        Navigator.push(
+          context,
+          PageTransition(
+              type: PageTransitionType.fade,
+              child: Complains(),
+              inheritTheme: true,
+              ctx: context),
+        );
         break;
     }
     setState(() {
