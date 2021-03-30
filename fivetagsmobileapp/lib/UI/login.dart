@@ -169,6 +169,24 @@ class _LoginState extends State<Login> {
                             Navigator.pushNamed(context, "/feed");
                           }
                         } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Email or Password not correct'),
+                              action: SnackBarAction(
+                                label: 'Get Help',
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return ContactUs();
+                                      },
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          );
                           print(e);
                         }
                       },

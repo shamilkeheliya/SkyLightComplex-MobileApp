@@ -1,10 +1,12 @@
 import 'package:fivetagsmobileapp/UI/about.dart';
 import 'package:fivetagsmobileapp/UI/contactus.dart';
+import 'package:fivetagsmobileapp/UI/login.dart';
 import 'package:fivetagsmobileapp/UI/profile.dart';
 import 'package:fivetagsmobileapp/UI/qna.dart';
 import 'package:fivetagsmobileapp/UI/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Drwr extends StatefulWidget {
   @override
@@ -32,16 +34,19 @@ class _DrwrState extends State<Drwr> {
                   boxShadow: [BoxShadow(color: blueLight, spreadRadius: 1)],
                 ),
                 child: Padding(
-                  padding: EdgeInsets.only(right: 20.0),
+                  padding: EdgeInsets.only(right: 25.0),
                   child: Center(
-                    child: Text(
-                      'Shamil\nMuhandiram',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: mainFont,
-                        fontSize: 24,
-                      ),
+                    // child: Text(
+                    //   'Shamil\nMuhandiram',
+                    //   textAlign: TextAlign.center,
+                    //   style: TextStyle(
+                    //     color: Colors.white,
+                    //     fontFamily: mainFont,
+                    //     fontSize: 24,
+                    //   ),
+                    // ),
+                    child: Container(
+                      child: Image.asset('images/logo.png'),
                     ),
                   ),
                 ),
@@ -120,6 +125,17 @@ class _DrwrState extends State<Drwr> {
                 //contentPadding: EdgeInsets.only(top: 100.0),
                 leading: Icon(Icons.arrow_back),
                 title: Text('Log Out'),
+                onTap: () async {
+                  await FirebaseAuth.instance.signOut();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Login();
+                      },
+                    ),
+                  );
+                },
               ),
             ],
           ),

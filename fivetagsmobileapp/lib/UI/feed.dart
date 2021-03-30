@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:fivetagsmobileapp/drawer.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Feed extends StatefulWidget {
   @override
@@ -12,6 +13,12 @@ class Feed extends StatefulWidget {
 }
 
 class _HomeState extends State<Feed> {
+  final _auth = FirebaseAuth.instance;
+  void getCurrentUser() async {
+    final user = await _auth.currentUser;
+    print(user);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
