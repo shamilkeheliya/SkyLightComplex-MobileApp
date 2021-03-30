@@ -1,6 +1,8 @@
+import 'package:fivetagsmobileapp/UI/contactus.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import '../constant.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Login extends StatefulWidget {
   Login({Key key}) : super(key: key);
@@ -10,6 +12,10 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final _auth = FirebaseAuth.instance;
+  String email;
+  String password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,19 +32,22 @@ class _LoginState extends State<Login> {
           physics: const BouncingScrollPhysics(),
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 40.0),
+              padding: const EdgeInsets.symmetric(vertical: 70.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    child: Image.asset(
-                      'images/logo.png',
-                      height: 140.0,
+                  Hero(
+                    tag: 'logo',
+                    child: Container(
+                      child: Image.asset(
+                        'images/logo.png',
+                        height: 140.0,
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: 50.0,
+                    height: 100.0,
                   ),
                   Container(
                     padding:
@@ -59,7 +68,13 @@ class _LoginState extends State<Login> {
                     padding:
                         EdgeInsets.symmetric(vertical: 0.0, horizontal: 30.0),
                     child: TextField(
-                      obscureText: true,
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                      keyboardType: TextInputType.emailAddress,
+                      onChanged: (value) {
+                        email = value;
+                      },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Email',
@@ -73,6 +88,12 @@ class _LoginState extends State<Login> {
                     padding:
                         EdgeInsets.symmetric(vertical: 0.0, horizontal: 30.0),
                     child: TextField(
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                      onChanged: (value) {
+                        password = value;
+                      },
                       obscureText: true,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -80,8 +101,30 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                   ),
+                  Center(
+                    child: FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return ContactUs();
+                            },
+                          ),
+                        );
+                      },
+                      child: Container(
+                        child: Text(
+                          'Contact us',
+                          style: TextStyle(
+                            color: blueLight,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                   SizedBox(
-                    height: 20.0,
+                    height: 30.0,
                   ),
                   Container(
                     height: 50.0,
@@ -96,8 +139,38 @@ class _LoginState extends State<Login> {
                           fontFamily: mainFont,
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, "/feed");
+                      onPressed: () async {
+                        if (email == null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Email cannot be blank'),
+                              action: SnackBarAction(
+                                label: 'OK',
+                                onPressed: () {},
+                              ),
+                            ),
+                          );
+                        } else if (password == null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Password cannot be blank'),
+                              action: SnackBarAction(
+                                label: 'OK',
+                                onPressed: () {},
+                              ),
+                            ),
+                          );
+                        }
+
+                        try {
+                          final user = await _auth.signInWithEmailAndPassword(
+                              email: email, password: password);
+                          if (user != null) {
+                            Navigator.pushNamed(context, "/feed");
+                          }
+                        } catch (e) {
+                          print(e);
+                        }
                       },
                     ),
                   ),

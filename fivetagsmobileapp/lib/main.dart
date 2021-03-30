@@ -7,8 +7,17 @@ import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/UI/splash.dart';
 import 'package:fivetagsmobileapp/UI/login.dart';
 import 'package:fivetagsmobileapp/UI/feed.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+// void main() {
+//   runApp(MyApp());
+// }
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -28,6 +37,14 @@ class MyApp extends StatelessWidget {
       },
     );
   }
+
+  // Future<DocumentSnapshot> getData() async {
+  //   await Firebase.initializeApp();
+  //   return await FirebaseFirestore.instance
+  //       .collection("users")
+  //       .doc("docID")
+  //       .get();
+  // }
 }
 
 // class MyApp extends StatelessWidget {

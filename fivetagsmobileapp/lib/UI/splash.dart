@@ -38,11 +38,25 @@ class _SplashState extends State<Splash> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              //padding: const EdgeInsets.only(top: 100.0),
-              child: Image.asset(
-                'images/logo.png',
-                height: 140.0,
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      type: PageTransitionType.fade,
+                      child: Login(),
+                      inheritTheme: true,
+                      ctx: context),
+                );
+              },
+              child: Hero(
+                tag: 'logo',
+                child: Container(
+                  child: Image.asset(
+                    'images/logo.png',
+                    height: 140.0,
+                  ),
+                ),
               ),
             ),
             SizedBox(
