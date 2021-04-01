@@ -108,6 +108,7 @@ class _HomeState extends State<Requests> {
                 Container(
                   child: Icon(
                     icon,
+                    color: blueDark,
                     size: 50.0,
                   ),
                 ),
