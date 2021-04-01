@@ -52,35 +52,6 @@ class _SplashState extends State<Splash> {
     }
   }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   print(getCurrentUser());
-  //   if (getCurrentUser() != null) {
-  //     Future.delayed(Duration(seconds: 3), () {
-  //       Navigator.push(
-  //         context,
-  //         PageTransition(
-  //             type: PageTransitionType.fade,
-  //             child: Feed(),
-  //             inheritTheme: true,
-  //             ctx: context),
-  //       );
-  //     });
-  //   } else {
-  //     Future.delayed(Duration(seconds: 3), () {
-  //       Navigator.push(
-  //         context,
-  //         PageTransition(
-  //             type: PageTransitionType.fade,
-  //             child: Login(),
-  //             inheritTheme: true,
-  //             ctx: context),
-  //       );
-  //     });
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -7,6 +7,7 @@ import 'package:fivetagsmobileapp/UI/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_restart/flutter_restart.dart';
 
 class Drwr extends StatefulWidget {
   @override
@@ -127,14 +128,15 @@ class _DrwrState extends State<Drwr> {
                 title: Text('Log Out'),
                 onTap: () async {
                   await FirebaseAuth.instance.signOut();
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return Login();
-                      },
-                    ),
-                  );
+                  FlutterRestart.restartApp();
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) {
+                  //       return Login();
+                  //     },
+                  //   ),
+                  // );
                 },
               ),
             ],
