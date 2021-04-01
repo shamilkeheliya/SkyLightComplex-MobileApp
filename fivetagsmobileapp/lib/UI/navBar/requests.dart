@@ -2,19 +2,24 @@ import 'package:fivetagsmobileapp/UI/QnA/qComplains.dart';
 import 'package:fivetagsmobileapp/UI/QnA/qOthers.dart';
 import 'package:fivetagsmobileapp/UI/QnA/qRequests.dart';
 import 'package:fivetagsmobileapp/UI/QnA/qReservation.dart';
-import 'package:fivetagsmobileapp/UI/profile.dart';
+import 'package:fivetagsmobileapp/UI/requests/electricityBillRequests.dart';
+import 'package:fivetagsmobileapp/UI/requests/laborRequests.dart';
+import 'package:fivetagsmobileapp/UI/requests/waterBillRequests.dart';
+import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
-import 'package:expandable/expandable.dart';
-import 'package:fivetagsmobileapp/expandableCard.dart';
 
-class QnA extends StatefulWidget {
+import '../../drawer.dart';
+import '../../navBar.dart';
+import '../notifications.dart';
+
+class Requests extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<QnA> {
+class _HomeState extends State<Requests> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,13 +29,29 @@ class _HomeState extends State<QnA> {
         ),
         backgroundColor: blueLight,
         title: const Text(
-          'Q n A',
+          'Requests',
           style: TextStyle(
             fontFamily: mainFont,
             color: blueMid,
           ),
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Notifications();
+                  },
+                ),
+              );
+            },
+          ),
+        ],
       ),
+      drawer: Drwr(),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -43,17 +64,19 @@ class _HomeState extends State<QnA> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            btn('Reservations', QReservation()),
-            btn('Requests', QRequests()),
-            btn('Complains', QComplains()),
-            btn('Others', QOthers()),
+            btn(Icons.people_alt_outlined, 'Request Labor', LaborRequests()),
+            btn(Icons.water_damage_outlined, 'Request Water Bill',
+                WaterBillRequest()),
+            btn(Icons.electrical_services_outlined, 'Request Electricity Bill',
+                ElectricityBillRequest()),
           ],
         ),
       ),
+      bottomNavigationBar: NavBar(),
     );
   }
 
-  Expanded btn(title, page) {
+  Expanded btn(icon, title, page) {
     return Expanded(
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
@@ -79,10 +102,25 @@ class _HomeState extends State<QnA> {
                 ),
               );
             },
-            child: Text(
-              title,
-              style: TextStyle(
-                  fontSize: 25.0, color: blueDark, fontWeight: FontWeight.w400),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: Icon(
+                    icon,
+                    size: 50.0,
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                        fontSize: 25.0,
+                        color: blueDark,
+                        fontWeight: FontWeight.w400),
+                  ),
+                ),
+              ],
             ),
           ),
         ),

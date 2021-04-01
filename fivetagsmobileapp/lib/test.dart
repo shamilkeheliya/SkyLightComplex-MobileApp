@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:expandable/expandable.dart';
-import 'package:fivetagsmobileapp/UI/profile.dart';
+import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/profile.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {

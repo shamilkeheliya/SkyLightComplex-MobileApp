@@ -1,7 +1,7 @@
-import 'package:fivetagsmobileapp/UI/complains.dart';
-import 'package:fivetagsmobileapp/UI/feed.dart';
-import 'package:fivetagsmobileapp/UI/requests.dart';
-import 'package:fivetagsmobileapp/UI/reservation.dart';
+import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/navBar/complains.dart';
+import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/navBar/feed.dart';
+import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/navBar/requests.dart';
+import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/navBar/reservation.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:page_transition/page_transition.dart';

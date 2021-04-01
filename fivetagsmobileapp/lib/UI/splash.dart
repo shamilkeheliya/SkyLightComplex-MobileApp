@@ -1,4 +1,4 @@
-import 'package:fivetagsmobileapp/UI/feed.dart';
+import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/navBar/feed.dart';
 import 'package:fivetagsmobileapp/UI/login.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';

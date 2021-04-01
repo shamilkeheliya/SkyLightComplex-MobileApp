@@ -1,9 +1,9 @@
-import 'package:fivetagsmobileapp/UI/about.dart';
-import 'package:fivetagsmobileapp/UI/contactus.dart';
+import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/about.dart';
+import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/contactus.dart';
 import 'package:fivetagsmobileapp/UI/login.dart';
-import 'package:fivetagsmobileapp/UI/profile.dart';
-import 'package:fivetagsmobileapp/UI/qna.dart';
-import 'package:fivetagsmobileapp/UI/settings.dart';
+import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/profile.dart';
+import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/qna.dart';
+import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
