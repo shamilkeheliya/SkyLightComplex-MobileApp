@@ -6,10 +6,10 @@ class EventsService extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CollectionReference events =
-        FirebaseFirestore.instance.collection('events');
+        FirebaseFirestore.instance.collection("events");
 
     return StreamBuilder<QuerySnapshot>(
-      stream: events.snapshots(),
+      stream: events.orderBy('date').snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return Text(
