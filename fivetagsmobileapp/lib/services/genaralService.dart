@@ -37,36 +37,49 @@ class GenaralService extends StatelessWidget {
             var date = document.data()['date'];
             var time = document.data()['time'];
             var userName = document.data()['userName'];
-            return new Card(
-              color: cardBack,
-              elevation: 8.0,
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: CircleAvatar(
-                      radius: 30.0,
-                      foregroundImage:
-                          NetworkImage(document.data()['userProfile']),
-                      backgroundImage: AssetImage('images/profilePicture.jpg'),
-                    ),
-                    title: Text(
-                      '$type Reservation',
-                      style: TextStyle(color: Colors.white, fontSize: 20.0),
-                    ),
-                    subtitle: Text(
-                      '$date at $time',
-                      style: TextStyle(color: Colors.white),
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(2.0, 1.0, 4.0, 1.0),
+              child: new Card(
+                elevation: 8.0,
+                clipBehavior: Clip.antiAlias,
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment(0.0, -1.0),
+                      end: Alignment(0.0, 1.0),
+                      colors: [blueLightUnelected, blueLightSelected],
+                      stops: [0.0, 1.0],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      '$userName reserved $type on $date at $time',
-                      style: TextStyle(color: Colors.white),
-                    ),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        leading: CircleAvatar(
+                          radius: 30.0,
+                          foregroundImage:
+                              NetworkImage(document.data()['userProfile']),
+                          backgroundImage:
+                              AssetImage('images/profilePicture.jpg'),
+                        ),
+                        title: Text(
+                          '$type Reservation',
+                          style: TextStyle(color: blueDark, fontSize: 20.0),
+                        ),
+                        subtitle: Text(
+                          '$date at $time',
+                          style: TextStyle(color: blueDark),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          '$userName reserved $type on $date at $time',
+                          style: TextStyle(color: blueDark),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             );
           }).toList(),

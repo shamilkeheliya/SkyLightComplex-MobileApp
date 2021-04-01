@@ -35,36 +35,48 @@ class EventsService extends StatelessWidget {
           children: snapshot.data.docs.map((DocumentSnapshot document) {
             var date = document.data()['date'];
             var time = document.data()['time'];
-            return new Card(
-              color: cardBack,
-              elevation: 8.0,
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Text(
-                      document.data()['title'],
-                      style: TextStyle(color: Colors.white, fontSize: 20.0),
-                    ),
-                    subtitle: Text(
-                      '$date at $time',
-                      style: TextStyle(color: Colors.white),
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(2.0, 1.0, 4.0, 1.0),
+              child: new Card(
+                elevation: 8.0,
+                clipBehavior: Clip.antiAlias,
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment(0.0, -1.0),
+                      end: Alignment(0.0, 1.0),
+                      colors: [blueLightUnelected, blueLightSelected],
+                      stops: [0.0, 1.0],
                     ),
                   ),
-                  Image.network(document.data()['imageURL']),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        document.data()['description'],
-                        style: TextStyle(
-                          color: Colors.white,
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title: Text(
+                          document.data()['title'],
+                          style: TextStyle(color: blueDark, fontSize: 20.0),
+                        ),
+                        subtitle: Text(
+                          '$date at $time',
+                          style: TextStyle(color: blueDark),
                         ),
                       ),
-                    ),
+                      Image.network(document.data()['imageURL']),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            document.data()['description'],
+                            style: TextStyle(
+                              color: blueDark,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             );
           }).toList(),
