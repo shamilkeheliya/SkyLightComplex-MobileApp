@@ -1,11 +1,12 @@
 import 'package:fivetagsmobileapp/UI/notifications.dart';
-import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/qna.dart';
 import 'package:fivetagsmobileapp/navBar.dart';
+import 'package:fivetagsmobileapp/services/eventsService.dart';
+import 'package:fivetagsmobileapp/services/genaralService.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:fivetagsmobileapp/drawer.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fivetagsmobileapp/test.dart';
 
 class Feed extends StatefulWidget {
   @override
@@ -13,19 +14,15 @@ class Feed extends StatefulWidget {
 }
 
 class _HomeState extends State<Feed> {
-  final _auth = FirebaseAuth.instance;
-  void getCurrentUser() async {
-    final user = await _auth.currentUser;
-    print(user);
-  }
-
   final _kTabPages = <Widget>[
-    Center(child: Genaral()),
-    Center(child: Icon(Icons.alarm, size: 64.0, color: Colors.cyan)),
+    //Center(child: Test()),
+    Center(child: GenaralService()),
+    Center(child: EventsService()),
   ];
+
   final _kTabs = <Tab>[
     const Tab(text: 'Genaral'),
-    const Tab(text: 'Special'),
+    const Tab(text: 'Events'),
   ];
 
   @override
@@ -85,15 +82,4 @@ class _HomeState extends State<Feed> {
       ),
     );
   }
-}
-
-Column Genaral() {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.stretch,
-    children: [
-      Container(
-        child: Text('shmail'),
-      ),
-    ],
-  );
 }

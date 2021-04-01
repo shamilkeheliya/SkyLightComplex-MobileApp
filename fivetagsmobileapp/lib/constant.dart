@@ -5,6 +5,7 @@ const blueDark = Color(0xFF081B39);
 const blueMid = Color(0xFF023451);
 const blueLightSelected = Color(0xFF15D9E8);
 const blueLightUnelected = Color(0xFF007680);
+const cardBack = Color(0xFF081B39);
 
 const mainFont = 'Righteous';
 
