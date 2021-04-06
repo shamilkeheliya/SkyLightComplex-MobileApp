@@ -1,5 +1,5 @@
-import 'package:fivetagsmobileapp/UI/requests/laborRequests/electrician.dart';
-import 'package:fivetagsmobileapp/UI/requests/laborRequests/plumber.dart';
+import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequests/electrician.dart';
+import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequests/plumber.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
@@ -19,7 +19,7 @@ class _HomeState extends State<LaborRequests> {
         ),
         backgroundColor: blueLight,
         title: const Text(
-          'Labor Request',
+          'Request Labor',
           style: TextStyle(
             fontFamily: mainFont,
             color: blueMid,
@@ -58,7 +58,7 @@ class _HomeState extends State<LaborRequests> {
             gradient: LinearGradient(
               begin: Alignment(0.0, -1.0),
               end: Alignment(0.0, 1.0),
-              colors: [blueLightUnelected, blueLightSelected],
+              colors: [blueLightUnselected, blueLightSelected],
               stops: [0.0, 1.0],
             ),
           ),

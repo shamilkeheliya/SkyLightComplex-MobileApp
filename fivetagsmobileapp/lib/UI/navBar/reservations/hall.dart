@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 
-class Settingss extends StatefulWidget {
+class Hall extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Settingss> {
+class _HomeState extends State<Hall> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,7 @@ class _HomeState extends State<Settingss> {
         ),
         backgroundColor: blueLight,
         title: const Text(
-          'Settings',
+          'Hall Reservation',
           style: TextStyle(
             fontFamily: mainFont,
             color: blueMid,
@@ -32,6 +32,9 @@ class _HomeState extends State<Settingss> {
             colors: [blueLight, blueDark],
             stops: [0.0, 1.0],
           ),
+        ),
+        child: Column(
+          children: [],
         ),
       ),
     );

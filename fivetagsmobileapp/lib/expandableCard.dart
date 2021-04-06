@@ -34,7 +34,7 @@ class ExCard extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment(0.0, -1.0),
                     end: Alignment(0.0, 1.0),
-                    colors: [blueLightUnelected, blueLightSelected],
+                    colors: [blueLightUnselected, blueLightSelected],
                     stops: [0.0, 1.0],
                   ),
                 ),

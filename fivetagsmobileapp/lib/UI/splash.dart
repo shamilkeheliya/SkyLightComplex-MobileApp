@@ -1,5 +1,6 @@
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/navBar/feed.dart';
 import 'package:fivetagsmobileapp/UI/login.dart';
+import 'package:fivetagsmobileapp/navBar.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'dart:async';
@@ -30,7 +31,7 @@ class _SplashState extends State<Splash> {
             context,
             PageTransition(
                 type: PageTransitionType.fade,
-                child: Feed(),
+                child: NavBar(),
                 inheritTheme: true,
                 ctx: context),
           );
@@ -70,14 +71,7 @@ class _SplashState extends State<Splash> {
           children: [
             FlatButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  PageTransition(
-                      type: PageTransitionType.fade,
-                      child: Login(),
-                      inheritTheme: true,
-                      ctx: context),
-                );
+                getCurrentUser();
               },
               child: Hero(
                 tag: 'logo',

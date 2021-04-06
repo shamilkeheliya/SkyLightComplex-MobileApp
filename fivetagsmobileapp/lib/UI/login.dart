@@ -16,6 +16,9 @@ class _LoginState extends State<Login> {
   String email;
   String password;
 
+  final _email = TextEditingController();
+  final _password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,6 +71,7 @@ class _LoginState extends State<Login> {
                     padding:
                         EdgeInsets.symmetric(vertical: 0.0, horizontal: 30.0),
                     child: TextField(
+                      controller: _email,
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -78,6 +82,7 @@ class _LoginState extends State<Login> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Email',
+                        labelStyle: TextStyle(color: blueLightSelected),
                       ),
                     ),
                   ),
@@ -88,6 +93,7 @@ class _LoginState extends State<Login> {
                     padding:
                         EdgeInsets.symmetric(vertical: 0.0, horizontal: 30.0),
                     child: TextField(
+                      controller: _password,
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -98,6 +104,7 @@ class _LoginState extends State<Login> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Password',
+                        labelStyle: TextStyle(color: blueLightSelected),
                       ),
                     ),
                   ),
@@ -126,70 +133,73 @@ class _LoginState extends State<Login> {
                   SizedBox(
                     height: 30.0,
                   ),
-                  Container(
-                    height: 50.0,
-                    padding:
-                        EdgeInsets.symmetric(vertical: 0.0, horizontal: 80.0),
-                    child: ElevatedButton(
-                      child: Text(
-                        'Login',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.white,
-                          fontFamily: mainFont,
+                  Hero(
+                    tag: 'btn',
+                    child: Container(
+                      height: 50.0,
+                      padding:
+                          EdgeInsets.symmetric(vertical: 0.0, horizontal: 80.0),
+                      child: ElevatedButton(
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                            fontFamily: mainFont,
+                          ),
                         ),
-                      ),
-                      onPressed: () async {
-                        if (email == null) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Email cannot be blank'),
-                              action: SnackBarAction(
-                                label: 'OK',
-                                onPressed: () {},
+                        onPressed: () async {
+                          if (_email.text.isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Email cannot be blank'),
+                                action: SnackBarAction(
+                                  label: 'OK',
+                                  onPressed: () {},
+                                ),
                               ),
-                            ),
-                          );
-                        } else if (password == null) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Password cannot be blank'),
-                              action: SnackBarAction(
-                                label: 'OK',
-                                onPressed: () {},
+                            );
+                          } else if (_password.text.isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Password cannot be blank'),
+                                action: SnackBarAction(
+                                  label: 'OK',
+                                  onPressed: () {},
+                                ),
                               ),
-                            ),
-                          );
-                        }
-
-                        try {
-                          final user = await _auth.signInWithEmailAndPassword(
-                              email: email, password: password);
-                          if (user != null) {
-                            Navigator.pushNamed(context, "/feed");
+                            );
                           }
-                        } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Email or Password not correct'),
-                              action: SnackBarAction(
-                                label: 'Get Help',
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) {
-                                        return ContactUs();
-                                      },
-                                    ),
-                                  );
-                                },
+
+                          try {
+                            final user = await _auth.signInWithEmailAndPassword(
+                                email: email, password: password);
+                            if (user != null) {
+                              Navigator.pushNamed(context, "/navbar");
+                            }
+                          } catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Email or Password not correct'),
+                                action: SnackBarAction(
+                                  label: 'Get Help',
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) {
+                                          return ContactUs();
+                                        },
+                                      ),
+                                    );
+                                  },
+                                ),
                               ),
-                            ),
-                          );
-                          print(e);
-                        }
-                      },
+                            );
+                            print(e);
+                          }
+                        },
+                      ),
                     ),
                   ),
                 ],

@@ -1,10 +1,8 @@
-import 'package:fivetagsmobileapp/UI/notifications.dart';
-import 'package:fivetagsmobileapp/UI/requests/laborRequests/electrician.dart';
-import 'package:fivetagsmobileapp/navBar.dart';
+import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequests/electrician.dart';
+import 'package:fivetagsmobileapp/UI/navBar/reservations/hall.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
-import 'package:fivetagsmobileapp/drawer.dart';
 
 class Reservations extends StatefulWidget {
   @override
@@ -15,35 +13,6 @@ class _HomeState extends State<Reservations> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: blueMid,
-        ),
-        backgroundColor: blueLight,
-        title: const Text(
-          'Reservations',
-          style: TextStyle(
-            fontFamily: mainFont,
-            color: blueMid,
-          ),
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return Notifications();
-                  },
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-      drawer: Drwr(),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -58,7 +27,7 @@ class _HomeState extends State<Reservations> {
             Expanded(
               child: Row(
                 children: [
-                  btn(Icons.celebration, 'Hall', Electrician()),
+                  btn(Icons.celebration, 'Hall', Hall()),
                   btn(Icons.roofing, 'Roof Top', Electrician()),
                 ],
               ),
@@ -90,7 +59,6 @@ class _HomeState extends State<Reservations> {
           ],
         ),
       ),
-      bottomNavigationBar: NavBar(),
     );
   }
 
@@ -104,7 +72,7 @@ class _HomeState extends State<Reservations> {
             gradient: LinearGradient(
               begin: Alignment(0.0, -1.0),
               end: Alignment(0.0, 1.0),
-              colors: [blueLightUnelected, blueLightSelected],
+              colors: [blueLightUnselected, blueLightSelected],
               stops: [0.0, 1.0],
             ),
           ),

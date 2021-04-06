@@ -1,18 +1,9 @@
-import 'package:fivetagsmobileapp/UI/QnA/qComplains.dart';
-import 'package:fivetagsmobileapp/UI/QnA/qOthers.dart';
-import 'package:fivetagsmobileapp/UI/QnA/qRequests.dart';
-import 'package:fivetagsmobileapp/UI/QnA/qReservation.dart';
-import 'package:fivetagsmobileapp/UI/requests/electricityBillRequests.dart';
-import 'package:fivetagsmobileapp/UI/requests/laborRequests.dart';
-import 'package:fivetagsmobileapp/UI/requests/waterBillRequests.dart';
-import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/profile.dart';
+import 'package:fivetagsmobileapp/UI/navBar/requests/electricityBillRequests.dart';
+import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequests.dart';
+import 'package:fivetagsmobileapp/UI/navBar/requests/waterBillRequests.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
-
-import '../../drawer.dart';
-import '../../navBar.dart';
-import '../notifications.dart';
 
 class Requests extends StatefulWidget {
   @override
@@ -23,35 +14,6 @@ class _HomeState extends State<Requests> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: blueMid,
-        ),
-        backgroundColor: blueLight,
-        title: const Text(
-          'Requests',
-          style: TextStyle(
-            fontFamily: mainFont,
-            color: blueMid,
-          ),
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return Notifications();
-                  },
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-      drawer: Drwr(),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -72,7 +34,6 @@ class _HomeState extends State<Requests> {
           ],
         ),
       ),
-      bottomNavigationBar: NavBar(),
     );
   }
 
@@ -86,7 +47,7 @@ class _HomeState extends State<Requests> {
             gradient: LinearGradient(
               begin: Alignment(0.0, -1.0),
               end: Alignment(0.0, 1.0),
-              colors: [blueLightUnelected, blueLightSelected],
+              colors: [blueLightUnselected, blueLightSelected],
               stops: [0.0, 1.0],
             ),
           ),

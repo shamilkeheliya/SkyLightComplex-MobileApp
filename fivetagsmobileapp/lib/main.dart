@@ -2,6 +2,8 @@ import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/navBar/complains.d
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/qna.dart';
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/navBar/requests.dart';
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/navBar/reservation.dart';
+import 'package:fivetagsmobileapp/UI/drawer/contactus.dart';
+import 'package:fivetagsmobileapp/navBar.dart';
 import 'package:fivetagsmobileapp/test.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/UI/splash.dart';
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Splash(),
         '/login': (context) => Login(),
+        '/navbar': (context) => NavBar(),
         '/feed': (context) => Feed(),
         '/reservation': (context) => Reservations(),
         '/requests': (context) => Requests(),
@@ -37,14 +40,6 @@ class MyApp extends StatelessWidget {
       },
     );
   }
-
-  // Future<DocumentSnapshot> getData() async {
-  //   await Firebase.initializeApp();
-  //   return await FirebaseFirestore.instance
-  //       .collection("users")
-  //       .doc("docID")
-  //       .get();
-  // }
 }
 
 // class MyApp extends StatelessWidget {
@@ -52,7 +47,7 @@ class MyApp extends StatelessWidget {
 //   Widget build(BuildContext context) {
 //     return MaterialApp(
 //       debugShowCheckedModeBanner: false,
-//       home: Feed(),
+//       home: ContactUs(),
 //     );
 //   }
 // }

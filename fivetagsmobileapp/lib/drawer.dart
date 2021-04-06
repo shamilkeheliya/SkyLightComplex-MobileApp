@@ -1,20 +1,54 @@
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/about.dart';
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/contactus.dart';
-import 'package:fivetagsmobileapp/UI/login.dart';
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/profile.dart';
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/qna.dart';
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/settings.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_restart/flutter_restart.dart';
 
 class Drwr extends StatefulWidget {
+  String profilePhoto;
+  String name;
+  Drwr(profilePhoto, name) {
+    this.profilePhoto = profilePhoto;
+    this.name = name;
+  }
   @override
-  _DrwrState createState() => _DrwrState();
+  _DrwrState createState() => _DrwrState(this.profilePhoto, this.name);
 }
 
 class _DrwrState extends State<Drwr> {
+  _DrwrState(profilePhoto, name) {
+    this.profilePhoto = profilePhoto;
+    this.name = name;
+  }
+  final _auth = FirebaseAuth.instance;
+
+  String profilePhoto;
+  String name;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   final User user = _auth.currentUser;
+  //   final uid = user.uid;
+  //
+  //   FirebaseFirestore.instance
+  //       .collection('users')
+  //       .doc(uid)
+  //       .get()
+  //       .then((DocumentSnapshot documentSnapshot) {
+  //     setState(() {
+  //       profilePhoto = documentSnapshot.data()["profileURL"];
+  //       name =
+  //           '${documentSnapshot.data()["firstName"]} ${documentSnapshot.data()["lastName"]}';
+  //     });
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Theme(
@@ -31,23 +65,33 @@ class _DrwrState extends State<Drwr> {
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: blueLightUnelected,
+                  color: blueLightUnselected,
                   boxShadow: [BoxShadow(color: blueLight, spreadRadius: 1)],
                 ),
                 child: Padding(
-                  padding: EdgeInsets.only(right: 25.0),
+                  padding: EdgeInsets.only(right: 16.0),
                   child: Center(
-                    // child: Text(
-                    //   'Shamil\nMuhandiram',
-                    //   textAlign: TextAlign.center,
-                    //   style: TextStyle(
-                    //     color: Colors.white,
-                    //     fontFamily: mainFont,
-                    //     fontSize: 24,
-                    //   ),
-                    // ),
-                    child: Container(
-                      child: Image.asset('images/logo.png'),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 50.0,
+                          foregroundImage: NetworkImage(profilePhoto),
+                          backgroundImage:
+                              AssetImage('images/profilePicture.jpg'),
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Container(
+                          child: Text(
+                            name,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20.0,
+                                fontFamily: mainFont),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -74,7 +118,7 @@ class _DrwrState extends State<Drwr> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return Settings();
+                        return Settingss();
                       },
                     ),
                   );
@@ -127,16 +171,38 @@ class _DrwrState extends State<Drwr> {
                 leading: Icon(Icons.arrow_back),
                 title: Text('Log Out'),
                 onTap: () async {
-                  await FirebaseAuth.instance.signOut();
-                  FlutterRestart.restartApp();
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) {
-                  //       return Login();
-                  //     },
-                  //   ),
-                  // );
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                            backgroundColor: blueLightSelected,
+                            title: const Text(
+                              'Log Out',
+                              style: TextStyle(color: blueDark),
+                            ),
+                            content: const Text(
+                              'Are you sure?',
+                              style: TextStyle(color: blueDark),
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  FirebaseAuth.instance.signOut();
+                                  FlutterRestart.restartApp();
+                                },
+                                child: const Text(
+                                  'Yes',
+                                  style: TextStyle(color: blueDark),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () => Navigator.pop(context),
+                                child: const Text(
+                                  'No',
+                                  style: TextStyle(color: blueDark),
+                                ),
+                              ),
+                            ],
+                          ));
                 },
               ),
             ],
