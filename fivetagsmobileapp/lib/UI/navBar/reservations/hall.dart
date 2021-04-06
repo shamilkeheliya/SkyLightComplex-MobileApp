@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
@@ -8,6 +10,43 @@ class Hall extends StatefulWidget {
 }
 
 class _HomeState extends State<Hall> {
+  DateTime selectedDate = DateTime.now();
+  TimeOfDay selectedTime = TimeOfDay(hour: 00, minute: 00);
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime.now(),
+        lastDate: DateTime(2101));
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+      });
+  }
+
+  final _auth = FirebaseAuth.instance;
+  String name, profilePhoto, userid;
+  @override
+  void initState() {
+    super.initState();
+    final User user = _auth.currentUser;
+    final uid = user.uid;
+    userid = uid;
+
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(uid)
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
+      setState(() {
+        profilePhoto = documentSnapshot.data()["profileURL"];
+        name =
+            '${documentSnapshot.data()["firstName"]} ${documentSnapshot.data()["lastName"]}';
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +73,156 @@ class _HomeState extends State<Hall> {
           ),
         ),
         child: Column(
-          children: [],
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Container(
+                child: Text(
+                  'Select a date for the reservantion',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                    fontFamily: mainFont,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 80.0),
+              child: ElevatedButton(
+                child: Text(
+                  "${selectedDate}".split(' ')[0],
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    color: Colors.white,
+                    fontFamily: mainFont,
+                  ),
+                ),
+                onPressed: () => _selectDate(context),
+              ),
+            ),
+            SizedBox(
+              height: 70.0,
+            ),
+            Center(
+              child: Container(
+                child: Text(
+                  'Select a time for the reservantion',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                    fontFamily: mainFont,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 80.0),
+              child: ElevatedButton(
+                child: Text(
+                  "${selectedTime.format(context)}",
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    color: Colors.white,
+                    fontFamily: mainFont,
+                  ),
+                ),
+                onPressed: () async {
+                  // TimeOfDay Time = await showTimePicker(
+                  //   context: context,
+                  //   initialTime: TimeOfDay.now(),
+                  //   builder: (BuildContext context, Widget child) {
+                  //     return MediaQuery(
+                  //       data: MediaQuery.of(context)
+                  //           .copyWith(alwaysUse24HourFormat: true),
+                  //       child: child,
+                  //     );
+                  //   },
+                  // );
+                  final DateTime now = DateTime.now();
+                  showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay(hour: now.hour, minute: now.minute),
+                  ).then((TimeOfDay value) {
+                    if (value != null) {
+                      setState(() {
+                        selectedTime = value;
+                      });
+                    }
+                  });
+                },
+              ),
+            ),
+            SizedBox(
+              height: 100.0,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 80.0),
+              child: ElevatedButton(
+                child: Text(
+                  'Reserve',
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    color: Colors.white,
+                    fontFamily: mainFont,
+                  ),
+                ),
+                onPressed: () {
+                  var h;
+                  var m;
+                  if (selectedTime.hour < 10) {
+                    h = "0${selectedTime.hour}";
+                  } else {
+                    h = "${selectedTime.hour}";
+                  }
+
+                  if (selectedTime.minute < 10) {
+                    m = "0${selectedTime.minute}";
+                  } else {
+                    m = "${selectedTime.minute}";
+                  }
+
+                  String time = "${h}:${m}";
+                  String date =
+                      "${selectedDate.day}-${selectedDate.month}-${selectedDate.year}";
+
+                  CollectionReference bookings =
+                      FirebaseFirestore.instance.collection('bookings');
+                  bookings.add({
+                    'uid': userid,
+                    'userName': name,
+                    'userProfile': profilePhoto,
+                    'date': date,
+                    'time': time,
+                    'type': 'Hall',
+                    'read': false,
+                    'accept': false,
+                  }).then(
+                    (value) {
+                      print("Reservation Added");
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Reservation added Successfully'),
+                          action: SnackBarAction(
+                            label: 'OK',
+                            onPressed: () {},
+                          ),
+                        ),
+                      );
+                      Navigator.pop(context);
+                    },
+                  ).catchError((error) => print("Failed: $error"));
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

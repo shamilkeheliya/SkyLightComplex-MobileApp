@@ -3,6 +3,7 @@ import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/qna.dart';
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/navBar/requests.dart';
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/navBar/reservation.dart';
 import 'package:fivetagsmobileapp/UI/drawer/contactus.dart';
+import 'package:fivetagsmobileapp/UI/navBar/reservations/hall.dart';
 import 'package:fivetagsmobileapp/navBar.dart';
 import 'package:fivetagsmobileapp/test.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
 //   Widget build(BuildContext context) {
 //     return MaterialApp(
 //       debugShowCheckedModeBanner: false,
-//       home: ContactUs(),
+//       home: Hall(),
 //     );
 //   }
 // }
