@@ -3,7 +3,7 @@ import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/contactus.d
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/profile.dart';
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/qna.dart';
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/settings.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fivetagsmobileapp/UI/drawer/numbers.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -119,6 +119,20 @@ class _DrwrState extends State<Drwr> {
                     MaterialPageRoute(
                       builder: (context) {
                         return Settingss();
+                      },
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.call),
+                title: Text('Important Contacts'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Numbers();
                       },
                     ),
                   );

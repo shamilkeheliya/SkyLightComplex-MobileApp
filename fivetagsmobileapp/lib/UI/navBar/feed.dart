@@ -1,5 +1,6 @@
 import 'package:fivetagsmobileapp/services/eventsService.dart';
 import 'package:fivetagsmobileapp/services/genaralService.dart';
+import 'package:fivetagsmobileapp/services/yourReservations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
@@ -14,11 +15,13 @@ class _HomeState extends State<Feed> {
     //Center(child: Test()),
     Center(child: GenaralService()),
     Center(child: EventsService()),
+    Center(child: YourReservationService()),
   ];
 
   final _kTabs = <Tab>[
     const Tab(text: 'Genaral'),
     const Tab(text: 'Events'),
+    const Tab(text: 'My Reservations'),
   ];
 
   @override
@@ -26,6 +29,19 @@ class _HomeState extends State<Feed> {
     return DefaultTabController(
       length: _kTabs.length,
       child: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 50.0,
+          backgroundColor: blueLight,
+          bottom: TabBar(
+            indicatorColor: blueDark,
+            labelColor: blueDark,
+            // unselectedLabelColor: blueMid,
+            tabs: _kTabs,
+          ),
+          iconTheme: IconThemeData(
+            color: blueMid,
+          ),
+        ),
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(

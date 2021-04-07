@@ -76,6 +76,7 @@ class _HomeState extends State<Complains> {
                     style: TextStyle(
                         fontSize: 25.0,
                         color: blueDark,
+                        fontFamily: mainFont,
                         fontWeight: FontWeight.w400),
                   ),
                 ),

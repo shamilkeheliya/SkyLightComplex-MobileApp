@@ -1,21 +1,21 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class GenaralService extends StatelessWidget {
+class YourReservationService extends StatelessWidget {
+  final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     CollectionReference genaral =
         FirebaseFirestore.instance.collection('bookings');
 
+    final User user = _auth.currentUser;
+
     return StreamBuilder<QuerySnapshot>(
-      stream: genaral
-          .where("accept", isEqualTo: true)
-          //.orderBy('addedDateTime', descending: true)
-          .snapshots(),
+      stream: genaral.where("uid", isEqualTo: user.uid).snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
-          print(snapshot.error);
           return Text(
             'Something went wrong',
             style: TextStyle(
@@ -40,7 +40,24 @@ class GenaralService extends StatelessWidget {
             var type = document.data()['type'];
             var date = document.data()['date'];
             var time = document.data()['time'];
-            var userName = document.data()['userName'];
+            var read = document.data()['read'];
+            var accept = document.data()['accept'];
+            var status;
+            Color statusColor;
+
+            if (read == false) {
+              status = 'Pending';
+              statusColor = Colors.yellow[800];
+            } else {
+              if (accept == true) {
+                status = 'Accepted';
+                statusColor = Colors.lightGreen[900];
+              } else {
+                status = 'Declined';
+                statusColor = Colors.redAccent[700];
+              }
+            }
+
             return Padding(
               padding: const EdgeInsets.fromLTRB(2.0, 1.0, 4.0, 1.0),
               child: new Card(
@@ -77,8 +94,11 @@ class GenaralService extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
-                          '$userName reserved $type on $date at $time',
-                          style: TextStyle(color: blueDark),
+                          status,
+                          style: TextStyle(
+                              color: statusColor,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.w800),
                         ),
                       ),
                     ],

@@ -1,5 +1,12 @@
 import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequests/electrician.dart';
+import 'package:fivetagsmobileapp/UI/navBar/reservations/badminton.dart';
+import 'package:fivetagsmobileapp/UI/navBar/reservations/billiotTable.dart';
+import 'package:fivetagsmobileapp/UI/navBar/reservations/bus.dart';
 import 'package:fivetagsmobileapp/UI/navBar/reservations/hall.dart';
+import 'package:fivetagsmobileapp/UI/navBar/reservations/roofTop.dart';
+import 'package:fivetagsmobileapp/UI/navBar/reservations/tableTennis.dart';
+import 'package:fivetagsmobileapp/UI/navBar/reservations/tennisCourt.dart';
+import 'package:fivetagsmobileapp/UI/navBar/reservations/van.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
@@ -27,32 +34,36 @@ class _HomeState extends State<Reservations> {
             Expanded(
               child: Row(
                 children: [
-                  btn(Icons.celebration, 'Hall', Hall()),
-                  btn(Icons.roofing, 'Roof Top', Electrician()),
+                  btn('hall', Icons.celebration, 'Hall', Hall()),
+                  btn('roof', Icons.roofing, 'Roof Top', RoofTop()),
                 ],
               ),
             ),
             Expanded(
               child: Row(
                 children: [
-                  btn(Icons.sports_tennis_outlined, 'Badminton', Electrician()),
-                  btn(Icons.sports_baseball, 'Tennis Court', Electrician()),
+                  btn('badminton', Icons.sports_tennis_outlined, 'Badminton',
+                      Badminton()),
+                  btn('tennis', Icons.sports_baseball, 'Tennis Court',
+                      TennisCourt()),
                 ],
               ),
             ),
             Expanded(
               child: Row(
                 children: [
-                  btn(Icons.sports_soccer, 'Billiot Table', Electrician()),
-                  btn(Icons.sports_tennis, 'Table Tennis ', Electrician()),
+                  btn('billiot', Icons.sports_soccer, 'Billiot Table',
+                      BilliotTable()),
+                  btn('tt', Icons.sports_tennis, 'Table Tennis ',
+                      TableTennis()),
                 ],
               ),
             ),
             Expanded(
               child: Row(
                 children: [
-                  btn(Icons.time_to_leave, 'Van', Electrician()),
-                  btn(Icons.directions_bus, 'Bus', Electrician()),
+                  btn('van', Icons.time_to_leave, 'Van', Van()),
+                  btn('bus', Icons.directions_bus, 'Bus', Bus()),
                 ],
               ),
             ),
@@ -62,7 +73,7 @@ class _HomeState extends State<Reservations> {
     );
   }
 
-  Expanded btn(icon, title, page) {
+  Expanded btn(heroTag, icon, title, page) {
     return Expanded(
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
@@ -92,19 +103,24 @@ class _HomeState extends State<Reservations> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  child: Icon(
-                    icon,
-                    size: 50.0,
-                    color: blueDark,
+                  child: Hero(
+                    tag: heroTag,
+                    child: Icon(
+                      icon,
+                      size: 50.0,
+                      color: blueDark,
+                    ),
                   ),
                 ),
                 Container(
                   child: Text(
                     title,
                     style: TextStyle(
-                        fontSize: 25.0,
-                        color: blueDark,
-                        fontWeight: FontWeight.w400),
+                      fontSize: 25.0,
+                      color: blueDark,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: mainFont,
+                    ),
                   ),
                 ),
               ],

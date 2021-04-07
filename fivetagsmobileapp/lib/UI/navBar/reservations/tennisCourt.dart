@@ -4,12 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 
-class Hall extends StatefulWidget {
+class TennisCourt extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Hall> {
+class _HomeState extends State<TennisCourt> {
   DateTime selectedDate = DateTime.now();
   TimeOfDay selectedTime = TimeOfDay(hour: 00, minute: 00);
 
@@ -56,7 +56,7 @@ class _HomeState extends State<Hall> {
         ),
         backgroundColor: blueLight,
         title: const Text(
-          'Hall Reservation',
+          'Tennis Court Reservation',
           style: TextStyle(
             fontFamily: mainFont,
             color: blueMid,
@@ -78,9 +78,9 @@ class _HomeState extends State<Hall> {
           children: [
             Container(
               child: Hero(
-                tag: 'hall',
+                tag: 'tennis',
                 child: Icon(
-                  Icons.celebration,
+                  Icons.sports_baseball,
                   size: 100.0,
                   color: blueMid,
                 ),
@@ -89,7 +89,7 @@ class _HomeState extends State<Hall> {
             Center(
               child: Container(
                 child: Text(
-                  'Hall',
+                  'Tennis Court',
                   style: TextStyle(
                     fontSize: 30.0,
                     color: blueMid,
@@ -226,7 +226,7 @@ class _HomeState extends State<Hall> {
                     'userProfile': profilePhoto,
                     'date': date,
                     'time': time,
-                    'type': 'Hall',
+                    'type': 'Tennis Court',
                     'read': false,
                     'addedDateTime': DateTime.now(),
                   }).then(
