@@ -1,4 +1,7 @@
-import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequests/plumber.dart';
+import 'package:fivetagsmobileapp/UI/navBar/complains/annoyingNeighbor.dart';
+import 'package:fivetagsmobileapp/UI/navBar/complains/electricalIssue.dart';
+import 'package:fivetagsmobileapp/UI/navBar/complains/otherComplains.dart';
+import 'package:fivetagsmobileapp/UI/navBar/complains/waterIssue.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
@@ -24,17 +27,19 @@ class _HomeState extends State<Complains> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            btn(Icons.bolt, 'Electrical Issue', Plumber()),
-            btn(Icons.water_damage_outlined, 'Water Issue', Plumber()),
-            btn(Icons.people, 'Annoying Neighbor', Plumber()),
-            btn(Icons.report, 'Other', Plumber()),
+            btn('electrical', Icons.bolt, 'Electrical Issue',
+                ElectricalIssue()),
+            btn('water', Icons.water_damage_outlined, 'Water Issue',
+                WaterIssue()),
+            btn('neighbor', Icons.people, 'Annoying Neighbor', Neighbor()),
+            btn('other', Icons.report, 'Other Complains', OtherComplains()),
           ],
         ),
       ),
     );
   }
 
-  Expanded btn(icon, title, page) {
+  Expanded btn(heroTag, icon, title, page) {
     return Expanded(
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
@@ -64,10 +69,13 @@ class _HomeState extends State<Complains> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  child: Icon(
-                    icon,
-                    color: blueDark,
-                    size: 50.0,
+                  child: Hero(
+                    tag: heroTag,
+                    child: Icon(
+                      icon,
+                      color: blueDark,
+                      size: 50.0,
+                    ),
                   ),
                 ),
                 Container(

@@ -17,7 +17,7 @@ class _HomeState extends State<WaterBillRequest> {
         ),
         backgroundColor: blueLight,
         title: const Text(
-          'Water Bill Request',
+          'Request Water Bill',
           style: TextStyle(
             fontFamily: mainFont,
             color: blueMid,

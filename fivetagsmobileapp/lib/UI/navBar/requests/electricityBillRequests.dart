@@ -17,7 +17,7 @@ class _HomeState extends State<ElectricityBillRequest> {
         ),
         backgroundColor: blueLight,
         title: const Text(
-          'Electricity Bill Request',
+          'Request Electricity Bill',
           style: TextStyle(
             fontFamily: mainFont,
             color: blueMid,
