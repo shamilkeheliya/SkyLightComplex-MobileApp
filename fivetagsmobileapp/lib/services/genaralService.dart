@@ -16,21 +16,25 @@ class GenaralService extends StatelessWidget {
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           print(snapshot.error);
-          return Text(
-            'Something went wrong',
-            style: TextStyle(
-              color: blueMid,
-              fontSize: 20.0,
+          return Center(
+            child: Text(
+              'Something went wrong',
+              style: TextStyle(
+                color: blueMid,
+                fontSize: 20.0,
+              ),
             ),
           );
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Text(
-            "Loading...",
-            style: TextStyle(
-              color: blueMid,
-              fontSize: 20.0,
+          return Center(
+            child: Text(
+              "Loading...",
+              style: TextStyle(
+                color: blueMid,
+                fontSize: 20.0,
+              ),
             ),
           );
         }

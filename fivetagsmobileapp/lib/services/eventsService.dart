@@ -12,21 +12,25 @@ class EventsService extends StatelessWidget {
       stream: events.orderBy('date').snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Text(
-            'Something went wrong',
-            style: TextStyle(
-              color: blueMid,
-              fontSize: 20.0,
+          return Center(
+            child: Text(
+              'Something went wrong',
+              style: TextStyle(
+                color: blueMid,
+                fontSize: 20.0,
+              ),
             ),
           );
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Text(
-            "Loading...",
-            style: TextStyle(
-              color: blueMid,
-              fontSize: 20.0,
+          return Center(
+            child: Text(
+              "Loading...",
+              style: TextStyle(
+                color: blueMid,
+                fontSize: 20.0,
+              ),
             ),
           );
         }

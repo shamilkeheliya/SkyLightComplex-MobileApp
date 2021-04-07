@@ -51,21 +51,25 @@ class NumberService extends StatelessWidget {
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           print(snapshot.error);
-          return Text(
-            'Something went wrong',
-            style: TextStyle(
-              color: blueMid,
-              fontSize: 20.0,
+          return Center(
+            child: Text(
+              'Something went wrong',
+              style: TextStyle(
+                color: blueMid,
+                fontSize: 20.0,
+              ),
             ),
           );
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Text(
-            "Loading...",
-            style: TextStyle(
-              color: blueMid,
-              fontSize: 20.0,
+          return Center(
+            child: Text(
+              "Loading...",
+              style: TextStyle(
+                color: blueMid,
+                fontSize: 20.0,
+              ),
             ),
           );
         }
@@ -115,24 +119,6 @@ class NumberService extends StatelessWidget {
                       ],
                     ),
                   ),
-
-                  // ListTile(
-                  //   title: Text(
-                  //     '$name Reservation',
-                  //     style: TextStyle(color: blueDark, fontSize: 20.0),
-                  //   ),
-                  //   subtitle: Text(
-                  //     ' at ',
-                  //     style: TextStyle(color: blueDark),
-                  //   ),
-                  // ),
-                  // Padding(
-                  //   padding: const EdgeInsets.all(16.0),
-                  //   child: Text(
-                  //     'reserved on at ',
-                  //     style: TextStyle(color: blueDark),
-                  //   ),
-                  // ),
                 ),
               ),
             );

@@ -186,37 +186,38 @@ class _DrwrState extends State<Drwr> {
                 title: Text('Log Out'),
                 onTap: () async {
                   showDialog(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                            backgroundColor: blueLightSelected,
-                            title: const Text(
-                              'Log Out',
-                              style: TextStyle(color: blueDark),
-                            ),
-                            content: const Text(
-                              'Are you sure?',
-                              style: TextStyle(color: blueDark),
-                            ),
-                            actions: [
-                              TextButton(
-                                onPressed: () {
-                                  FirebaseAuth.instance.signOut();
-                                  FlutterRestart.restartApp();
-                                },
-                                child: const Text(
-                                  'Yes',
-                                  style: TextStyle(color: blueDark),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () => Navigator.pop(context),
-                                child: const Text(
-                                  'No',
-                                  style: TextStyle(color: blueDark),
-                                ),
-                              ),
-                            ],
-                          ));
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      backgroundColor: blueLightSelected,
+                      title: const Text(
+                        'Log Out',
+                        style: TextStyle(color: blueDark),
+                      ),
+                      content: const Text(
+                        'Are you sure?',
+                        style: TextStyle(color: blueDark),
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            FirebaseAuth.instance.signOut();
+                            FlutterRestart.restartApp();
+                          },
+                          child: const Text(
+                            'Yes',
+                            style: TextStyle(color: blueDark),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: const Text(
+                            'No',
+                            style: TextStyle(color: blueDark),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
                 },
               ),
             ],
