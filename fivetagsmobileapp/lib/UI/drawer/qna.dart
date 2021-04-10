@@ -2,7 +2,6 @@ import 'package:fivetagsmobileapp/UI/QnA/qComplains.dart';
 import 'package:fivetagsmobileapp/UI/QnA/qOthers.dart';
 import 'package:fivetagsmobileapp/UI/QnA/qRequests.dart';
 import 'package:fivetagsmobileapp/UI/QnA/qReservation.dart';
-import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';

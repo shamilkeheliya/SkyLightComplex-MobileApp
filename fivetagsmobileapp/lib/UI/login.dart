@@ -1,4 +1,4 @@
-import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/contactus.dart';
+import 'package:fivetagsmobileapp/UI/drawer/contactus.dart';
 import 'package:fivetagsmobileapp/navBar.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
