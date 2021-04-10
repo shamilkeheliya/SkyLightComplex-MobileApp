@@ -114,6 +114,16 @@ class _HomeState extends State<Feed> {
                         ),
                       ),
                     );
+                  } else if (_pwd.text.length < 6) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Password should have 6 characters'),
+                        action: SnackBarAction(
+                          label: 'OK',
+                          onPressed: () {},
+                        ),
+                      ),
+                    );
                   } else {
                     final _auth = FirebaseAuth.instance;
                     final User user = _auth.currentUser;
