@@ -1,8 +1,14 @@
-import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequests/electrician.dart';
-import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequests/plumber.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequestPage.dart';
+import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequestServices/doneLabors.dart';
+import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequestServices/reportedLabors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
+import 'package:flutter_phone_state/flutter_phone_state.dart';
+import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequestServices/requestedLabors.dart';
+import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequestServices/getLabors.dart';
 
 class LaborRequests extends StatefulWidget {
   @override
@@ -10,6 +16,28 @@ class LaborRequests extends StatefulWidget {
 }
 
 class _HomeState extends State<LaborRequests> {
+  final _auth = FirebaseAuth.instance;
+  String name, userid, keyNum, userProfile, userMobile;
+  @override
+  void initState() {
+    super.initState();
+    final User user = _auth.currentUser;
+    final uid = user.uid;
+    userid = uid;
+
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(uid)
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
+      setState(() {
+        name =
+            '${documentSnapshot.data()["firstName"]} ${documentSnapshot.data()["lastName"]}';
+        keyNum = documentSnapshot.data()["keyNum"];
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,69 +63,79 @@ class _HomeState extends State<LaborRequests> {
             stops: [0.0, 1.0],
           ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            btn(Icons.bolt, 'Electrician', Electrician()),
-            btn(Icons.water_damage_outlined, 'Plumber', Plumber()),
-            btn(Icons.person, 'Servant', Plumber()),
-            btn(Icons.cleaning_services, 'House Cleaner', Plumber()),
-          ],
+        child: RequestsService(),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: blueLight,
+        child: const Icon(
+          Icons.add,
+          color: blueDark,
+          size: 35.0,
         ),
+        onPressed: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LaborRequestsPage()),
+          );
+        },
       ),
     );
   }
+}
 
-  Expanded btn(icon, title, page) {
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            gradient: LinearGradient(
-              begin: Alignment(0.0, -1.0),
-              end: Alignment(0.0, 1.0),
-              colors: [blueLightUnselected, blueLightSelected],
-              stops: [0.0, 1.0],
+class RequestsService extends StatelessWidget {
+  final _auth = FirebaseAuth.instance;
+  @override
+  Widget build(BuildContext context) {
+    final User user = _auth.currentUser;
+    CollectionReference genaral =
+        FirebaseFirestore.instance.collection('laborRequests');
+
+    return StreamBuilder<QuerySnapshot>(
+      stream: genaral.where("uid", isEqualTo: user.uid).snapshots(),
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          print(snapshot.error);
+          return Center(
+            child: Text(
+              'Something went wrong',
+              style: TextStyle(
+                color: blueMid,
+                fontSize: 20.0,
+              ),
             ),
-          ),
-          child: FlatButton(
-            //color: blueLightSelected,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return page;
-                  },
-                ),
-              );
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  child: Icon(
-                    icon,
-                    color: blueDark,
-                    size: 50.0,
-                  ),
-                ),
-                Container(
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                        fontSize: 25.0,
-                        color: blueDark,
-                        fontWeight: FontWeight.w400),
-                  ),
-                ),
-              ],
+          );
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(
+            child: Text(
+              "Loading...",
+              style: TextStyle(
+                color: blueMid,
+                fontSize: 20.0,
+              ),
             ),
-          ),
-        ),
-      ),
+          );
+        }
+
+        return new ListView(
+          children: snapshot.data.docs.map((DocumentSnapshot document) {
+            var status = document.data()['status'];
+            var type = document.data()['type'];
+
+            if (status == 'Request') {
+              return RequestedLabors(type);
+            } else if (status == 'Get') {
+              return GetLabors(document);
+            } else if (status == 'Done') {
+              return DoneLabors(document);
+            } else {
+              return ReportedLabors(document);
+            }
+          }).toList(),
+        );
+      },
     );
   }
 }

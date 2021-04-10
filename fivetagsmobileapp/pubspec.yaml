@@ -16,6 +16,8 @@ dependencies:
   firebase_auth: ^1.0.1
   cloud_firestore: ^1.0.3
   flutter_restart: ^0.0.3
+  flutter_phone_state: ^0.5.8
+  flutter_rating_bar: ^4.0.0
 
 dev_dependencies:
   flutter_test:

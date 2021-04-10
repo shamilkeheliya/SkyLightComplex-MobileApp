@@ -1,4 +1,3 @@
-import 'package:fivetagsmobileapp/UI/navBar/requests/laborRequests/electrician.dart';
 import 'package:fivetagsmobileapp/UI/navBar/reservations/badminton.dart';
 import 'package:fivetagsmobileapp/UI/navBar/reservations/billiotTable.dart';
 import 'package:fivetagsmobileapp/UI/navBar/reservations/bus.dart';

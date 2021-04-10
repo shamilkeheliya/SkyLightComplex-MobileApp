@@ -1,8 +1,8 @@
-import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/about.dart';
-import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/contactus.dart';
-import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/profile.dart';
-import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/qna.dart';
-import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/settings.dart';
+import 'package:fivetagsmobileapp/UI/drawer/about.dart';
+import 'package:fivetagsmobileapp/UI/drawer/contactus.dart';
+import 'package:fivetagsmobileapp/UI/drawer/profile.dart';
+import 'package:fivetagsmobileapp/UI/drawer/qna.dart';
+import 'package:fivetagsmobileapp/UI/drawer/settings.dart';
 import 'package:fivetagsmobileapp/UI/drawer/numbers.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
@@ -29,25 +29,6 @@ class _DrwrState extends State<Drwr> {
 
   String profilePhoto;
   String name;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   final User user = _auth.currentUser;
-  //   final uid = user.uid;
-  //
-  //   FirebaseFirestore.instance
-  //       .collection('users')
-  //       .doc(uid)
-  //       .get()
-  //       .then((DocumentSnapshot documentSnapshot) {
-  //     setState(() {
-  //       profilePhoto = documentSnapshot.data()["profileURL"];
-  //       name =
-  //           '${documentSnapshot.data()["firstName"]} ${documentSnapshot.data()["lastName"]}';
-  //     });
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {

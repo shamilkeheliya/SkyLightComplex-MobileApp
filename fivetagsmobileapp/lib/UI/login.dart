@@ -1,4 +1,5 @@
 import 'file:///H:/FiveTagsMobileApp/fivetagsmobileapp/lib/UI/drawer/contactus.dart';
+import 'package:fivetagsmobileapp/navBar.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import '../constant.dart';
@@ -15,9 +16,6 @@ class _LoginState extends State<Login> {
   final _auth = FirebaseAuth.instance;
   String email;
   String password;
-
-  final _email = TextEditingController();
-  final _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +69,6 @@ class _LoginState extends State<Login> {
                     padding:
                         EdgeInsets.symmetric(vertical: 0.0, horizontal: 30.0),
                     child: TextField(
-                      controller: _email,
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -82,7 +79,6 @@ class _LoginState extends State<Login> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Email',
-                        labelStyle: TextStyle(color: blueLightSelected),
                       ),
                     ),
                   ),
@@ -93,7 +89,6 @@ class _LoginState extends State<Login> {
                     padding:
                         EdgeInsets.symmetric(vertical: 0.0, horizontal: 30.0),
                     child: TextField(
-                      controller: _password,
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -104,7 +99,6 @@ class _LoginState extends State<Login> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Password',
-                        labelStyle: TextStyle(color: blueLightSelected),
                       ),
                     ),
                   ),
@@ -133,73 +127,77 @@ class _LoginState extends State<Login> {
                   SizedBox(
                     height: 30.0,
                   ),
-                  Hero(
-                    tag: 'btn',
-                    child: Container(
-                      height: 50.0,
-                      padding:
-                          EdgeInsets.symmetric(vertical: 0.0, horizontal: 80.0),
-                      child: ElevatedButton(
-                        child: Text(
-                          'Login',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            color: blueMid,
-                            fontFamily: mainFont,
-                          ),
+                  Container(
+                    height: 50.0,
+                    padding:
+                        EdgeInsets.symmetric(vertical: 0.0, horizontal: 80.0),
+                    child: ElevatedButton(
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white,
+                          fontFamily: mainFont,
                         ),
-                        onPressed: () async {
-                          if (_email.text.isEmpty) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('Email cannot be blank'),
-                                action: SnackBarAction(
-                                  label: 'OK',
-                                  onPressed: () {},
-                                ),
-                              ),
-                            );
-                          } else if (_password.text.isEmpty) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('Password cannot be blank'),
-                                action: SnackBarAction(
-                                  label: 'OK',
-                                  onPressed: () {},
-                                ),
-                              ),
-                            );
-                          }
-
-                          try {
-                            final user = await _auth.signInWithEmailAndPassword(
-                                email: email, password: password);
-                            if (user != null) {
-                              Navigator.pushNamed(context, "/navbar");
-                            }
-                          } catch (e) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('Email or Password not correct'),
-                                action: SnackBarAction(
-                                  label: 'Get Help',
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) {
-                                          return ContactUs();
-                                        },
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                            );
-                            print(e);
-                          }
-                        },
                       ),
+                      onPressed: () async {
+                        if (email == null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Email cannot be blank'),
+                              action: SnackBarAction(
+                                label: 'OK',
+                                onPressed: () {},
+                              ),
+                            ),
+                          );
+                        } else if (password == null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Password cannot be blank'),
+                              action: SnackBarAction(
+                                label: 'OK',
+                                onPressed: () {},
+                              ),
+                            ),
+                          );
+                        }
+
+                        try {
+                          final user = await _auth.signInWithEmailAndPassword(
+                              email: email, password: password);
+                          if (user != null) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return NavBar();
+                                },
+                              ),
+                            );
+                          }
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Email or Password not correct'),
+                              action: SnackBarAction(
+                                label: 'Get Help',
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return ContactUs();
+                                      },
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          );
+                          print(e);
+                        }
+                      },
                     ),
                   ),
                 ],
