@@ -18,7 +18,8 @@ dependencies:
   flutter_restart: ^0.0.3
   flutter_phone_state: ^0.5.8
   flutter_rating_bar: ^4.0.0
-  shared_preferences:
+  shared_preferences: ^2.0.5
+  image_picker: ^0.7.4
 
 dev_dependencies:
   flutter_test:

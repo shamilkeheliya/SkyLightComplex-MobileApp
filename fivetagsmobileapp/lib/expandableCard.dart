@@ -39,6 +39,7 @@ class ExCard extends StatelessWidget {
                   ),
                 ),
                 child: ExpandablePanel(
+                  collapsed: null,
                   theme: const ExpandableThemeData(
                     headerAlignment: ExpandablePanelHeaderAlignment.center,
                     tapBodyToCollapse: true,

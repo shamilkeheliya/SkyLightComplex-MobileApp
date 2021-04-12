@@ -79,23 +79,7 @@ class _HomeState extends State<Feed> {
           return AlertDialog(
             backgroundColor: blueLightSelected,
             title: new Text("Change Password"),
-            content: Container(
-              child: TextField(
-                obscureText: true,
-                controller: _pwd,
-                style: TextStyle(
-                  color: blueDark,
-                ),
-                onChanged: (value) {
-                  pwd = value;
-                },
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'New Password',
-                  labelStyle: TextStyle(color: blueDark),
-                ),
-              ),
-            ),
+            content: new Text("Change Password"),
             actions: <Widget>[
               // usually buttons at the bottom of the dialog
               new FlatButton(

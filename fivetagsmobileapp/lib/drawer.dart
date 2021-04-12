@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fivetagsmobileapp/UI/drawer/about.dart';
 import 'package:fivetagsmobileapp/UI/drawer/contactus.dart';
 import 'package:fivetagsmobileapp/UI/drawer/profile.dart';
 import 'package:fivetagsmobileapp/UI/drawer/qna.dart';
 import 'package:fivetagsmobileapp/UI/drawer/settings.dart';
 import 'package:fivetagsmobileapp/UI/drawer/numbers.dart';
+import 'package:fivetagsmobileapp/test.dart';
 import 'package:flutter/material.dart';
 import 'package:fivetagsmobileapp/constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -31,6 +33,27 @@ class _DrwrState extends State<Drwr> {
   String name;
 
   @override
+  void initState() {
+    super.initState();
+    getProfile();
+  }
+
+  void getProfile() {
+    final User user = _auth.currentUser;
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(user.uid)
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
+      setState(() {
+        profilePhoto = documentSnapshot.data()['profileURL'];
+        name =
+            '${documentSnapshot.data()['firstName']} ${documentSnapshot.data()['lastName']}';
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Theme(
       data: Theme.of(context).copyWith(
@@ -54,11 +77,14 @@ class _DrwrState extends State<Drwr> {
                   child: Center(
                     child: Column(
                       children: [
-                        CircleAvatar(
-                          radius: 50.0,
-                          foregroundImage: NetworkImage(profilePhoto),
-                          backgroundImage:
-                              AssetImage('images/profilePicture.jpg'),
+                        Hero(
+                          tag: 'dp',
+                          child: CircleAvatar(
+                            radius: 50.0,
+                            foregroundImage: NetworkImage(profilePhoto),
+                            backgroundImage:
+                                AssetImage('images/profilePicture.jpg'),
+                          ),
                         ),
                         SizedBox(
                           height: 10.0,
@@ -85,7 +111,7 @@ class _DrwrState extends State<Drwr> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return Profile();
+                        return Profile(profilePhoto, name);
                       },
                     ),
                   );
@@ -99,7 +125,7 @@ class _DrwrState extends State<Drwr> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return Settingss();
+                        return PickImage();
                       },
                     ),
                   );
